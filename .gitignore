@@ -1,0 +1,13 @@
+.env
+*.part
+*.tmp
+__pycache__/
+*.pyc
+.bak*/
+node_modules/
+config/marca.json
+memoria/*.json
+memoria/*.jsonl
+!memoria/catalogo-modelos.json
+memoria/referencias/*
+!memoria/referencias/.gitkeep

@@ -1,0 +1,7 @@
+{
+ "fps": 30, "width": 1080, "height": 1920, "duracao": 3,
+ "estilo": {"corLegenda": "#87C968", "alturaLegenda": 0.68, "tamanhoLegenda": 0.026, "palavrasPorGrupo": 4},
+ "audio": {"volumeTrilha": 0.45, "silencios": []},
+ "planos": [{"id": "p01", "tipo": "cartao", "inicio": 0, "fim": 3, "texto": "Gere este arquivo com\nscripts/montar_historia.py"}],
+ "legenda": []
+}

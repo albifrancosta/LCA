@@ -1,0 +1,39 @@
+{
+ "_leia": "Exemplo GERADO por execução simulada do roteador (transporte Runware falso, sem rede, sem crédito). Mostra como uma versão de take fica registrada na bíblia (producao.json → tomadas[].versoes[]).",
+ "tomadas": [
+  {
+   "id": "c05a",
+   "status": "aprovada",
+   "versoes": [
+    {
+     "tipo": "clipe",
+     "arquivo": "assets/clips/c05a.mp4",
+     "sha256": "17bab28c9b207ce7ae74105f08a48c8360c5a5bceeeed78bfadee4178dfdcdaf",
+     "origem": {
+      "imagem": "assets/img/c05a.png"
+     },
+     "provedor": "runware-kling26-pro",
+     "model_air": "klingai:kling-video@2.6-pro",
+     "provider_task_uuid": "16dd2e75-8b86-4c17-b159-4c745a536e83",
+     "input_hash": "f918ebb392d520672240e5f128a8107218b105cf8f6861ef804c4238ee1d2fc5",
+     "routing_policy": "runware_primary",
+     "motivo_roteamento": {
+      "escolhido": "runware-kling26-pro",
+      "rejeitados": []
+     },
+     "estimated_cost_usd": 0.35,
+     "actual_cost_usd": 0.35,
+     "custo_fonte": "includeCost (Runware)",
+     "price_checked_at": "2026-11-06",
+     "estado_job": "succeeded",
+     "qa": {
+      "estado": "aprovado",
+      "inspetor": "inspetor.py planos (Gemini) + conferencia.py lipsync + especialistas.py atuacao/figurino",
+      "relatorio": "entrega/inspecao/c05a-17bab28c.json",
+      "watch": "não instalado (decisão do usuário); fallback Gemini"
+     }
+    }
+   ]
+  }
+ ]
+}

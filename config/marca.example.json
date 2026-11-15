@@ -1,0 +1,6 @@
+{
+  "_leia": "Copie para config/marca.json e ajuste. Tudo opcional. pronuncia: como a voz deve falar o nome (a legenda mantém a grafia). variantes: grafias que a transcrição costuma produzir para o nome. vocabulario: nomes e termos para a transcrição acertar.",
+  "pronuncia": {"MinhaMarca": "Minha Márca"},
+  "variantes": {"minhamarca": ["minha marca", "mina marca"]},
+  "vocabulario": "MinhaMarca, nome do produto, termos do seu ramo"
+}

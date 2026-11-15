@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{titulo}} — Production Bible</title>
+<style>
+  :root { --fundo:#0f1115; --painel:#171a21; --borda:#2a2f3a; --texto:#e8eaf0; --sutil:#9aa3b2; --destaque:#f5b942;
+          --grave:#ef4444; --media:#f59e0b; --leve:#64748b; --ok:#22c55e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--fundo); color:var(--texto); font:14px/1.45 "Segoe UI", Arial, sans-serif; }
+  header { padding:28px 36px 18px; border-bottom:1px solid var(--borda); display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:30px; letter-spacing:.5px; }
+  header .meta { color:var(--sutil); font-size:13px; text-align:right; }
+  .selo { display:inline-block; padding:3px 10px; border-radius:99px; font-weight:700; font-size:12px; background:#333; }
+  .selo.aprovada, .selo.automatica { background:var(--ok); color:#06240f; } .selo.pendente { background:var(--media); color:#2b1700; }
+  nav { padding:10px 36px; display:flex; gap:14px; flex-wrap:wrap; border-bottom:1px solid var(--borda); font-size:13px; }
+  nav a { color:var(--destaque); text-decoration:none; }
+  main { padding:24px 36px 48px; display:grid; gap:26px; }
+  section { background:var(--painel); border:1px solid var(--borda); border-radius:14px; padding:18px 20px; break-inside:avoid; }
+  section h2 { margin:0 0 14px; font-size:18px; display:flex; gap:10px; align-items:baseline; }
+  section h2 .n { color:var(--destaque); font-size:14px; }
+  .grade { display:grid; gap:14px; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); }
+  .cartao { border:1px solid var(--borda); border-radius:10px; overflow:hidden; background:#12151b; }
+  .cartao .corpo { padding:10px 12px; }
+  .cartao h3 { margin:0 0 4px; font-size:15px; }
+  .id { font-family:Consolas, monospace; font-size:11px; color:var(--destaque); }
+  .img { width:100%; aspect-ratio:9/16; object-fit:cover; display:block; background:#222; }
+  .img.larga { aspect-ratio:16/9; }
+  .img.ficha { aspect-ratio:4/3; object-fit:contain; background:#d9dce2; }
+  .vazio { width:100%; aspect-ratio:9/16; display:flex; align-items:center; justify-content:center; text-align:center; padding:14px;
+           background:repeating-linear-gradient(45deg,#1d2129,#1d2129 10px,#21262f 10px,#21262f 20px); color:var(--sutil); font-size:12px; }
+  .vazio.larga { aspect-ratio:16/9; }
+  .rot { color:var(--sutil); font-size:12px; } .rot b { color:var(--texto); font-weight:600; }
+  .chips span { display:inline-block; margin:2px 4px 2px 0; padding:1px 8px; border-radius:99px; background:#252b36; font-size:11px; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--borda); vertical-align:top; }
+  th { color:var(--sutil); font-weight:600; }
+  .vistas { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; margin:6px 0; }
+  .vistas div { font-size:10.5px; text-align:center; padding:4px 2px; border-radius:6px; background:#20252e; }
+  .vistas .referencia { background:#14532d; } .vistas .na_ficha { background:#3b3415; } .vistas .ausente { background:#4c1d1d; }
+  .paleta { display:flex; gap:4px; margin:6px 0; } .paleta i { width:34px; height:22px; border-radius:5px; display:block; border:1px solid #0006; }
+  .linha-tempo { position:relative; height:54px; border-radius:8px; overflow:hidden; background:#0c0e12; border:1px solid var(--borda); }
+  .linha-tempo div { position:absolute; top:0; bottom:0; border-right:2px solid var(--fundo); padding:4px 6px; font-size:11px; overflow:hidden; white-space:nowrap; }
+  .problema { padding:6px 10px; border-left:4px solid var(--leve); margin:4px 0; background:#12151b; font-size:12.5px; }
+  .problema.grave { border-color:var(--grave); } .problema.media { border-color:var(--media); }
+  .esquema svg { width:100%; height:auto; background:#0c0e12; border-radius:8px; }
+  footer { color:var(--sutil); font-size:12px; padding:0 36px 30px; }
+  @media print { body { background:#fff; color:#111; } section, .cartao { background:#fff; border-color:#ccc; } nav { display:none; } }
+</style>
+</head>
+<body>
+<header>
+  <div><h1>{{titulo}}</h1><div class="rot">{{subtitulo}}</div></div>
+  <div class="meta">{{meta}}</div>
+</header>
+<nav>{{nav}}</nav>
+<main>
+{{secoes}}
+</main>
+<footer>{{rodape}}</footer>
+</body>
+</html>

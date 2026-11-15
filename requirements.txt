@@ -1,0 +1,17 @@
+# Núcleo (necessário)
+numpy>=1.26
+scipy>=1.11
+Pillow>=10.0
+
+# Opcionais — cada um liga uma função; sem eles a skill usa outro caminho
+faster-whisper>=1.0        # transcrição local (legendas, conferência da fala)
+opencv-python>=4.9         # análise de quadros
+scikit-image>=0.22         # comparação de imagens (storyboard × filme)
+librosa>=0.10              # batida e estrutura da música
+praat-parselmouth>=0.4     # medição da voz (tom, ritmo)
+moviepy>=1.0               # variações em lote
+gradio_client>=1.0         # clipes grátis nos Spaces do Hugging Face
+httpx>=0.27
+PyYAML>=6.0                # testes do cabeçalho dos agentes
+# easyocr>=1.7             # leitura de texto na tela (pesado: instala torch)
+# ultralytics>=8.0         # pose/atuação com YOLO (pesado: instala torch)

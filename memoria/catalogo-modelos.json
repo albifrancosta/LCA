@@ -1,0 +1,1043 @@
+{
+ "atualizado": "2026-11-06",
+ "fonte": "fal API oficial + anotados",
+ "modelos": [
+  {
+   "id": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 2,
+   "nota": "Hailuo 02 Standard 768p — barato, bom em movimento simples",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": true,
+    "duracoes": [
+     "6",
+     "10"
+    ],
+    "resolucoes": [
+     "512P",
+     "768P"
+    ],
+    "parametros": [
+     "duration",
+     "enable_safety_checker",
+     "end_image_url",
+     "image_url",
+     "prompt",
+     "prompt_optimizer",
+     "resolution"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.045,
+   "unidade": "seconds",
+   "custo_5s": 0.225
+  },
+  {
+   "id": "fal-ai/minimax/hailuo-02/pro/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 3,
+   "nota": "Hailuo 02 Pro 1080p",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": true,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "enable_safety_checker",
+     "end_image_url",
+     "image_url",
+     "prompt",
+     "prompt_optimizer"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.08,
+   "unidade": "seconds",
+   "custo_5s": 0.4
+  },
+  {
+   "id": "fal-ai/wan-25-preview/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 2,
+   "nota": "Wan 2.5 — barato",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": [
+     "5",
+     "10"
+    ],
+    "resolucoes": [
+     "480p",
+     "720p",
+     "1080p"
+    ],
+    "parametros": [
+     "audio_url",
+     "duration",
+     "enable_prompt_expansion",
+     "enable_safety_checker",
+     "image_url",
+     "negative_prompt",
+     "prompt",
+     "resolution",
+     "seed"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.05,
+   "unidade": "seconds",
+   "custo_5s": 0.25
+  },
+  {
+   "id": "fal-ai/wan/v2.2-a14b/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 2,
+   "nota": "Wan 2.2 A14B",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": true,
+    "duracoes": null,
+    "resolucoes": [
+     "480p",
+     "580p",
+     "720p"
+    ],
+    "parametros": [
+     "acceleration",
+     "adjust_fps_for_interpolation",
+     "aspect_ratio",
+     "enable_output_safety_checker",
+     "enable_prompt_expansion",
+     "enable_safety_checker",
+     "end_image_url",
+     "frames_per_second",
+     "guidance_scale",
+     "guidance_scale_2",
+     "image_url",
+     "interpolator_model",
+     "negative_prompt",
+     "num_frames",
+     "num_inference_steps",
+     "num_interpolated_frames",
+     "prompt",
+     "resolution",
+     "seed",
+     "shift",
+     "video_quality",
+     "video_write_mode"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.08,
+   "unidade": "seconds",
+   "custo_5s": 0.4
+  },
+  {
+   "id": "fal-ai/wan/v2.2-5b/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 1,
+   "nota": "Wan 2.2 5B — preço por vídeo, qualidade menor",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": [
+     "580p",
+     "720p"
+    ],
+    "parametros": [
+     "adjust_fps_for_interpolation",
+     "aspect_ratio",
+     "enable_output_safety_checker",
+     "enable_prompt_expansion",
+     "enable_safety_checker",
+     "frames_per_second",
+     "guidance_scale",
+     "image_url",
+     "interpolator_model",
+     "negative_prompt",
+     "num_frames",
+     "num_inference_steps",
+     "num_interpolated_frames",
+     "prompt",
+     "resolution",
+     "seed",
+     "shift",
+     "video_quality",
+     "video_write_mode"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.15,
+   "unidade": "videos",
+   "custo_5s": 0.15
+  },
+  {
+   "id": "fal-ai/kling-video/v2.1/standard/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 2,
+   "nota": "Kling 2.1 Standard",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": [
+     "5",
+     "10"
+    ],
+    "resolucoes": null,
+    "parametros": [
+     "cfg_scale",
+     "duration",
+     "enable_safety_checker",
+     "image_url",
+     "negative_prompt",
+     "prompt"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.056,
+   "unidade": "seconds",
+   "custo_5s": 0.28
+  },
+  {
+   "id": "fal-ai/kling-video/v2.5-turbo/pro/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 3,
+   "nota": "Kling 2.5 Turbo Pro — usado e aprovado no 'Cadê o técnico?'",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": true,
+    "duracoes": [
+     "5",
+     "10"
+    ],
+    "resolucoes": null,
+    "parametros": [
+     "cfg_scale",
+     "duration",
+     "enable_safety_checker",
+     "image_url",
+     "negative_prompt",
+     "prompt",
+     "tail_image_url"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.07,
+   "unidade": "seconds",
+   "custo_5s": 0.35
+  },
+  {
+   "id": "fal-ai/kling-video/v2.1/pro/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 3,
+   "nota": "Kling 2.1 Pro",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": true,
+    "duracoes": [
+     "5",
+     "10"
+    ],
+    "resolucoes": null,
+    "parametros": [
+     "cfg_scale",
+     "duration",
+     "enable_safety_checker",
+     "image_url",
+     "negative_prompt",
+     "prompt",
+     "tail_image_url"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.098,
+   "unidade": "seconds",
+   "custo_5s": 0.49
+  },
+  {
+   "id": "fal-ai/kling-video/v2.6/pro/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 3,
+   "nota": "Kling 2.6 Pro — atuação corporal boa, 1º e último quadro, US$ 0,07/s (2026-11-06)",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": true,
+    "duracoes": [
+     "5",
+     "10"
+    ],
+    "resolucoes": null,
+    "parametros": [
+     "duration",
+     "enable_safety_checker",
+     "end_image_url",
+     "generate_audio",
+     "negative_prompt",
+     "prompt",
+     "start_image_url",
+     "voice_ids"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.07,
+   "unidade": "seconds",
+   "custo_5s": 0.35
+  },
+  {
+   "id": "fal-ai/kling-video/v3/pro/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 3,
+   "nota": "Kling 3 Pro — 3–15 s, 1º/último quadro, elements (referência de personagem), US$ 0,14/s",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": true,
+    "duracoes": [
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12",
+     "13",
+     "14",
+     "15"
+    ],
+    "resolucoes": null,
+    "parametros": [
+     "cfg_scale",
+     "duration",
+     "elements",
+     "enable_safety_checker",
+     "end_image_url",
+     "generate_audio",
+     "multi_prompt",
+     "negative_prompt",
+     "prompt",
+     "shot_type",
+     "start_image_url"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.14,
+   "unidade": "seconds",
+   "custo_5s": 0.7
+  },
+  {
+   "id": "fal-ai/kling-video/ai-avatar/v2/standard",
+   "provedor": "fal",
+   "tipo": "lipsync",
+   "qualidade_base": 2,
+   "nota": "Kling AI Avatar v2 Std — imagem + áudio → personagem falando com gestos, US$ 0,056/s",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "audio_url",
+     "enable_safety_checker",
+     "image_url",
+     "prompt"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.0562,
+   "unidade": "seconds",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/kling-video/ai-avatar/v2/pro",
+   "provedor": "fal",
+   "tipo": "lipsync",
+   "qualidade_base": 3,
+   "nota": "Kling AI Avatar v2 Pro — idem, mais qualidade, US$ 0,115/s",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "audio_url",
+     "enable_safety_checker",
+     "image_url",
+     "prompt"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.115,
+   "unidade": "seconds",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/bytedance/omnihuman/v1.5",
+   "provedor": "fal",
+   "tipo": "lipsync",
+   "qualidade_base": 3,
+   "nota": "OmniHuman 1.5 — imagem + áudio + prompt de ação, aceita cartoon, US$ 0,16/s",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": [
+     "720p",
+     "1080p"
+    ],
+    "parametros": [
+     "audio_url",
+     "image_url",
+     "mask_url",
+     "prompt",
+     "resolution",
+     "turbo_mode"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.16,
+   "unidade": "seconds",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/sync-lipsync/v2",
+   "provedor": "fal",
+   "tipo": "lipsync",
+   "qualidade_base": 3,
+   "nota": "sync lipsync-2 — re-sincroniza a boca de um CLIPE já animado, US$ 3/min",
+   "recursos": {
+    "i2v": false,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "audio_url",
+     "enable_safety_checker",
+     "model",
+     "sync_mode",
+     "video_url"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 3,
+   "unidade": "minutes",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/mmaudio-v2",
+   "provedor": "fal",
+   "tipo": "efeito",
+   "qualidade_base": 2,
+   "nota": "MMAudio v2 — gera o som A PARTIR do clipe (passos, batida, violão no tempo da imagem), US$ 0,001/s",
+   "recursos": {
+    "i2v": false,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": [
+     "8"
+    ],
+    "resolucoes": null,
+    "parametros": [
+     "cfg_strength",
+     "duration",
+     "mask_away_clip",
+     "negative_prompt",
+     "num_steps",
+     "prompt",
+     "seed",
+     "video_url"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.001,
+   "unidade": "seconds",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/elevenlabs/sound-effects/v2",
+   "provedor": "fal",
+   "tipo": "efeito",
+   "qualidade_base": 3,
+   "nota": "ElevenLabs SFX v2 — efeito por descrição, US$ 0,002/s",
+   "recursos": {
+    "i2v": false,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "duration_seconds",
+     "loop",
+     "output_format",
+     "prompt_influence",
+     "text"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.002,
+   "unidade": "seconds",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 2,
+   "nota": "Seedance Lite — cobra por tokens (estimado)",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": true,
+    "duracoes": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12"
+    ],
+    "resolucoes": [
+     "480p",
+     "720p",
+     "1080p"
+    ],
+    "parametros": [
+     "aspect_ratio",
+     "camera_fixed",
+     "duration",
+     "enable_safety_checker",
+     "end_image_url",
+     "image_url",
+     "num_frames",
+     "prompt",
+     "resolution",
+     "seed"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 1,
+   "unidade": "1m tokens",
+   "custo_5s": 0.108
+  },
+  {
+   "id": "fal-ai/bytedance/seedance/v1/pro/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 3,
+   "nota": "Seedance Pro — cobra por tokens (estimado)",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": true,
+    "duracoes": [
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7",
+     "8",
+     "9",
+     "10",
+     "11",
+     "12"
+    ],
+    "resolucoes": [
+     "480p",
+     "720p",
+     "1080p"
+    ],
+    "parametros": [
+     "aspect_ratio",
+     "camera_fixed",
+     "duration",
+     "enable_safety_checker",
+     "end_image_url",
+     "image_url",
+     "num_frames",
+     "prompt",
+     "resolution",
+     "seed"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 2.5,
+   "unidade": "1m tokens",
+   "custo_5s": 0.27
+  },
+  {
+   "id": "fal-ai/ltxv-13b-098-distilled/image-to-video",
+   "provedor": "fal",
+   "tipo": "video",
+   "qualidade_base": 1,
+   "nota": "LTX Video — muito barato, qualidade menor",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": [
+     "480p",
+     "720p"
+    ],
+    "parametros": [
+     "aspect_ratio",
+     "constant_rate_factor",
+     "enable_detail_pass",
+     "enable_prompt_expansion",
+     "enable_safety_checker",
+     "first_pass_num_inference_steps",
+     "frame_rate",
+     "image_url",
+     "loras",
+     "negative_prompt",
+     "num_frames",
+     "prompt",
+     "resolution",
+     "reverse_video",
+     "second_pass_num_inference_steps",
+     "second_pass_skip_initial_steps",
+     "seed",
+     "temporal_adain_factor",
+     "tone_map_compression_ratio"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.02,
+   "unidade": "seconds",
+   "custo_5s": 0.1
+  },
+  {
+   "id": "fal-ai/wan/v2.2-14b/animate/replace",
+   "provedor": "fal",
+   "tipo": "motion",
+   "qualidade_base": 2,
+   "nota": "Wan 2.2 Animate Replace — TROCA o personagem do vídeo, mantém cenário e movimento",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": [
+     "480p",
+     "580p",
+     "720p"
+    ],
+    "parametros": [
+     "enable_output_safety_checker",
+     "enable_safety_checker",
+     "guidance_scale",
+     "image_url",
+     "num_inference_steps",
+     "resolution",
+     "return_frames_zip",
+     "seed",
+     "shift",
+     "use_turbo",
+     "video_quality",
+     "video_url",
+     "video_write_mode"
+    ],
+    "modos": [
+     "trocar"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.08,
+   "unidade": "seconds",
+   "custo_5s": 0.4
+  },
+  {
+   "id": "fal-ai/wan/v2.2-14b/animate/move",
+   "provedor": "fal",
+   "tipo": "motion",
+   "qualidade_base": 2,
+   "nota": "Wan 2.2 Animate Move — personagem da imagem copia o movimento do vídeo",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": [
+     "480p",
+     "580p",
+     "720p"
+    ],
+    "parametros": [
+     "enable_output_safety_checker",
+     "enable_safety_checker",
+     "guidance_scale",
+     "image_url",
+     "num_inference_steps",
+     "resolution",
+     "return_frames_zip",
+     "seed",
+     "shift",
+     "use_turbo",
+     "video_quality",
+     "video_url",
+     "video_write_mode"
+    ],
+    "modos": [
+     "mover"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.08,
+   "unidade": "seconds",
+   "custo_5s": 0.4
+  },
+  {
+   "id": "fal-ai/kling-video/v2.6/standard/motion-control",
+   "provedor": "fal",
+   "tipo": "motion",
+   "qualidade_base": 2,
+   "nota": "Kling 2.6 Motion Control Standard — personagem/cenário da imagem com os gestos do vídeo",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "character_orientation",
+     "enable_safety_checker",
+     "image_url",
+     "keep_original_sound",
+     "prompt",
+     "video_url"
+    ],
+    "modos": [
+     "mover"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.07,
+   "unidade": "seconds",
+   "custo_5s": 0.35
+  },
+  {
+   "id": "fal-ai/kling-video/v2.6/pro/motion-control",
+   "provedor": "fal",
+   "tipo": "motion",
+   "qualidade_base": 3,
+   "nota": "Kling 2.6 Motion Control Pro — idem, mais qualidade",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "character_orientation",
+     "enable_safety_checker",
+     "image_url",
+     "keep_original_sound",
+     "prompt",
+     "video_url"
+    ],
+    "modos": [
+     "mover"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.112,
+   "unidade": "seconds",
+   "custo_5s": 0.56
+  },
+  {
+   "id": "fal-ai/elevenlabs/music",
+   "provedor": "fal",
+   "tipo": "musica",
+   "qualidade_base": 3,
+   "nota": "ElevenLabs Music — partes com duração exata",
+   "recursos": {
+    "i2v": false,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "composition_plan",
+     "force_instrumental",
+     "music_length_ms",
+     "output_format",
+     "prompt",
+     "respect_sections_durations"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.6,
+   "unidade": "minutes",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/ace-step",
+   "provedor": "fal",
+   "tipo": "musica",
+   "qualidade_base": 2,
+   "nota": "ACE-Step — barato, um bloco por geração",
+   "recursos": {
+    "i2v": false,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": [
+     "60"
+    ],
+    "resolucoes": null,
+    "parametros": [
+     "duration",
+     "enable_safety_checker",
+     "granularity_scale",
+     "guidance_interval",
+     "guidance_interval_decay",
+     "guidance_scale",
+     "guidance_type",
+     "lyric_guidance_scale",
+     "lyrics",
+     "minimum_guidance_scale",
+     "number_of_steps",
+     "scheduler",
+     "seed",
+     "tag_guidance_scale",
+     "tags"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.0002,
+   "unidade": "seconds",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/lyria2",
+   "provedor": "fal",
+   "tipo": "musica",
+   "qualidade_base": 2,
+   "nota": "Lyria 2 — 30 s fixos",
+   "recursos": {
+    "i2v": false,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "enable_safety_checker",
+     "negative_prompt",
+     "prompt",
+     "seed"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.1,
+   "unidade": "30 seconds",
+   "custo_5s": null
+  },
+  {
+   "id": "cassetteai/music-generator",
+   "provedor": "fal",
+   "tipo": "musica",
+   "qualidade_base": 1,
+   "nota": "CassetteAI",
+   "recursos": {
+    "i2v": false,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "duration",
+     "prompt"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.02,
+   "unidade": "minutes",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/flux/schnell",
+   "provedor": "fal",
+   "tipo": "imagem",
+   "qualidade_base": 1,
+   "nota": "FLUX schnell — rascunho barato",
+   "recursos": {
+    "i2v": false,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "acceleration",
+     "enable_safety_checker",
+     "guidance_scale",
+     "image_size",
+     "num_images",
+     "num_inference_steps",
+     "output_format",
+     "prompt",
+     "seed",
+     "sync_mode"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.003,
+   "unidade": "megapixels",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/nano-banana/edit",
+   "provedor": "fal",
+   "tipo": "imagem",
+   "qualidade_base": 3,
+   "nota": "Nano Banana edit — consistência com referência",
+   "recursos": {
+    "i2v": true,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "aspect_ratio",
+     "image_urls",
+     "limit_generations",
+     "num_images",
+     "output_format",
+     "prompt",
+     "safety_tolerance",
+     "seed",
+     "sync_mode"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.0398,
+   "unidade": "images",
+   "custo_5s": null
+  },
+  {
+   "id": "fal-ai/bytedance/seedream/v4/text-to-image",
+   "provedor": "fal",
+   "tipo": "imagem",
+   "qualidade_base": 2,
+   "nota": "Seedream 4",
+   "recursos": {
+    "i2v": false,
+    "primeiro_ultimo_quadro": false,
+    "duracoes": null,
+    "resolucoes": null,
+    "parametros": [
+     "enable_safety_checker",
+     "enhance_prompt_mode",
+     "image_size",
+     "max_images",
+     "num_images",
+     "prompt",
+     "seed",
+     "sync_mode"
+    ]
+   },
+   "fonte": "fal API /v1/models/pricing",
+   "atualizado": "2026-11-06",
+   "preco_unidade": 0.03,
+   "unidade": "images",
+   "custo_5s": null
+  },
+  {
+   "id": "openai/gpt-image-2.5-sunburst (medium 1024x1536)",
+   "provedor": "openai",
+   "tipo": "imagem",
+   "preco_unidade": 0.05,
+   "unidade": "imagem",
+   "qualidade_base": 3,
+   "nota": "padrão aprovado das ilustrações (personagem consistente com --ref)",
+   "fonte": "anotado no perfil (medição da conta, 2026-11-03)",
+   "atualizado": "2026-11-06",
+   "custo_5s": null,
+   "recursos": {}
+  },
+  {
+   "id": "google/gemini-3.8-flash-tts",
+   "provedor": "google",
+   "tipo": "voz",
+   "preco_unidade": 0,
+   "unidade": "fala (cota 100/dia no Tier 1)",
+   "qualidade_base": 3,
+   "nota": "tom por fala, PT-BR; reserva lite quando a cota acaba",
+   "fonte": "cota da conta do usuário",
+   "atualizado": "2026-11-06",
+   "custo_5s": null,
+   "recursos": {}
+  },
+  {
+   "id": "local/voicestudio (voz clonada)",
+   "provedor": "local",
+   "tipo": "voz",
+   "preco_unidade": 0,
+   "unidade": "fala",
+   "qualidade_base": 2,
+   "nota": "lento, sem tom",
+   "fonte": "local",
+   "atualizado": "2026-11-06",
+   "custo_5s": null,
+   "recursos": {}
+  },
+  {
+   "id": "local/remotion-motion",
+   "provedor": "local",
+   "tipo": "local",
+   "preco_unidade": 0,
+   "unidade": "cena",
+   "qualidade_base": 3,
+   "nota": "texto, telas, gráficos, ícones, transições — SEMPRE antes de vídeo pago",
+   "fonte": "local",
+   "atualizado": "2026-11-06",
+   "custo_5s": null,
+   "recursos": {}
+  },
+  {
+   "id": "local/trilha_gratis",
+   "provedor": "local",
+   "tipo": "musica",
+   "preco_unidade": 0,
+   "unidade": "trilha",
+   "qualidade_base": 1,
+   "nota": "sintetizada por blocos, batida exata",
+   "fonte": "local",
+   "atualizado": "2026-11-06",
+   "custo_5s": null,
+   "recursos": {}
+  }
+ ]
+}

@@ -1,0 +1,1173 @@
+{
+ "_leia": "Catálogo do roteador de APIs (scripts/provedores.py). Só entra como habilitado o que foi VERIFICADO; preço null = desconhecido (bloqueia gasto pela política). tier: free | paid | unknown. commercial_use: allowed | prohibited | unknown. Nunca colocar chaves aqui — só o NOME da variável de ambiente.",
+ "verificado_em": "2026-11-07",
+ "provedores": [
+  {
+   "enabled": false,
+   "tier": "paid",
+   "fornecedor": "runware",
+   "commercial_use": "unknown",
+   "nota_licenca": "Termos Runware §10: uso comercial permitido ('lawful commercial purposes'), MAS a lista 'agree not to' inclui 'Use the Services to advertise or offer to sell goods and services' — confirmar com a Runware antes de usar em anúncio",
+   "languages": [
+    "*"
+   ],
+   "credencial_env": "RUNWARE_API_KEY",
+   "referencias_preservadas": true,
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "id": "runware-imagem",
+   "stage": "imagem",
+   "adaptador": "RunwareImagem",
+   "model": "runware:z-image@0",
+   "quality": "high",
+   "motivo_desabilitado": "preço por imagem e campo de referência (ficha do personagem) não verificados no schema — falha fechado",
+   "capabilities": [
+    "imagem"
+   ],
+   "price": {
+    "currency": "USD",
+    "unit": "image",
+    "amount_per_unit": null,
+    "last_verified_at": null
+   }
+  },
+  {
+   "enabled": true,
+   "tier": "paid",
+   "fornecedor": "runware",
+   "commercial_use": "unknown",
+   "nota_licenca": "Termos Runware §10: uso comercial permitido ('lawful commercial purposes'), MAS a lista 'agree not to' inclui 'Use the Services to advertise or offer to sell goods and services' — confirmar com a Runware antes de usar em anúncio",
+   "languages": [
+    "*"
+   ],
+   "credencial_env": "RUNWARE_API_KEY",
+   "referencias_preservadas": true,
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "id": "runware-omnihuman15",
+   "stage": "lipsync",
+   "adaptador": "RunwareLipsync",
+   "model": "bytedance:5@2",
+   "quality": "high",
+   "capabilities": [
+    "lipsync",
+    "fala_em_quadro",
+    "fala_com_corpo"
+   ],
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.13247,
+    "last_verified_at": "2026-11-06",
+    "fonte": "runware.ai/docs/models/bytedance-omnihuman-1-5 schema.json x-pricing"
+   },
+   "perfil": {
+    "fala": 0.9,
+    "cinematografico": 0.3,
+    "i2v_personagem": 0.6,
+    "simples": 0.2
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "enabled": true,
+   "tier": "paid",
+   "fornecedor": "runware",
+   "commercial_use": "unknown",
+   "nota_licenca": "Termos Runware §10: uso comercial permitido ('lawful commercial purposes'), MAS a lista 'agree not to' inclui 'Use the Services to advertise or offer to sell goods and services' — confirmar com a Runware antes de usar em anúncio",
+   "languages": [
+    "*"
+   ],
+   "credencial_env": "RUNWARE_API_KEY",
+   "referencias_preservadas": true,
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "id": "runware-avatar-std",
+   "stage": "lipsync",
+   "adaptador": "RunwareLipsync",
+   "model": "klingai:avatar@2.0-standard",
+   "quality": "high",
+   "capabilities": [
+    "lipsync",
+    "fala_em_quadro"
+   ],
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.044,
+    "last_verified_at": "2026-11-06",
+    "fonte": "runware.ai/docs/models/klingai-avatar-2-0-standard schema.json x-pricing"
+   },
+   "perfil": {
+    "fala": 0.9,
+    "cinematografico": 0.1,
+    "i2v_personagem": 0.5,
+    "simples": 0.2
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "enabled": true,
+   "tier": "paid",
+   "fornecedor": "runware",
+   "commercial_use": "unknown",
+   "nota_licenca": "Termos Runware §10: uso comercial permitido ('lawful commercial purposes'), MAS a lista 'agree not to' inclui 'Use the Services to advertise or offer to sell goods and services' — confirmar com a Runware antes de usar em anúncio",
+   "languages": [
+    "*"
+   ],
+   "credencial_env": "RUNWARE_API_KEY",
+   "referencias_preservadas": true,
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "id": "runware-kling3-pro",
+   "stage": "video",
+   "adaptador": "RunwareVideo",
+   "model": "klingai:kling-video@3-pro",
+   "quality": "premium",
+   "capabilities": [
+    "video",
+    "i2v",
+    "atuacao",
+    "ultimo_quadro"
+   ],
+   "duracoes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.112,
+    "last_verified_at": "2026-11-06",
+    "fonte": "runware.ai/docs/models/klingai-video-3-0-pro schema.json x-pricing (1080p sem áudio)"
+   },
+   "perfil": {
+    "fala": 0.3,
+    "cinematografico": 0.9,
+    "i2v_personagem": 0.9,
+    "simples": 0.5
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "enabled": true,
+   "tier": "paid",
+   "fornecedor": "runware",
+   "commercial_use": "unknown",
+   "nota_licenca": "Termos Runware §10: uso comercial permitido ('lawful commercial purposes'), MAS a lista 'agree not to' inclui 'Use the Services to advertise or offer to sell goods and services' — confirmar com a Runware antes de usar em anúncio",
+   "languages": [
+    "*"
+   ],
+   "credencial_env": "RUNWARE_API_KEY",
+   "referencias_preservadas": true,
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "id": "runware-kling26-pro",
+   "stage": "video",
+   "adaptador": "RunwareVideo",
+   "model": "klingai:kling-video@2.6-pro",
+   "quality": "high",
+   "capabilities": [
+    "video",
+    "i2v",
+    "atuacao",
+    "ultimo_quadro"
+   ],
+   "duracoes": [
+    5,
+    10
+   ],
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.07,
+    "last_verified_at": "2026-11-06",
+    "fonte": "runware.ai/docs/models/klingai-video-2-6-pro schema.json x-pricing (sem áudio)"
+   },
+   "perfil": {
+    "fala": 0.3,
+    "cinematografico": 0.8,
+    "i2v_personagem": 0.8,
+    "simples": 0.6
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "id": "gemini-tts",
+   "enabled": true,
+   "stage": "tts",
+   "adaptador": "GeminiTTS",
+   "model": "gemini-3.8-flash-tts",
+   "tier": "paid",
+   "tier_evidencia": "página oficial: tier pago cobra por token; o projeto tem faturamento (bateu o 'monthly spending cap' em 2026-11-06)",
+   "commercial_use": "unknown",
+   "languages": [
+    "pt-BR"
+   ],
+   "capabilities": [
+    "tts",
+    "voice_style",
+    "emocao"
+   ],
+   "quality": "high",
+   "voice_profiles": [
+    "gemini:Puck",
+    "gemini:Kore",
+    "gemini:Fenrir",
+    "gemini:Aoede",
+    "gemini:Charon",
+    "gemini:Achird",
+    "gemini:Orus"
+   ],
+   "credencial_env": "GEMINI_API_KEY",
+   "quota": {
+    "detection": "provider_error",
+    "period": "daily",
+    "limit": null
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "call",
+    "amount_per_unit": 0.0105,
+    "last_verified_at": "2026-11-06",
+    "valid_until": "2026-12-31",
+    "fonte": "aistudio.google.com/docs/pricing (tier pago, Standard), lido em 2026-11-06",
+    "tabela": "entrada US$ 0,50/1M tokens de texto · saída US$ 9,00/1M tokens de áudio (25 tokens/s = US$ 0,000225/s); dobra em 01/01/2027",
+    "como_estimado": "teto por fala: 15 s de áudio × 3 tentativas internas = 45 s × 0,000225 + texto ≈ US$ 0,0105"
+   }
+  },
+  {
+   "id": "gemini-tts-lite",
+   "enabled": true,
+   "stage": "tts",
+   "adaptador": "GeminiTTS",
+   "model": "gemini-3.8-flash-lite-tts",
+   "tier": "paid",
+   "tier_evidencia": "mesmo projeto Gemini (cobrado)",
+   "commercial_use": "unknown",
+   "languages": [
+    "pt-BR"
+   ],
+   "capabilities": [
+    "tts",
+    "voice_style"
+   ],
+   "quality": "standard",
+   "voice_profiles": [
+    "gemini:Puck",
+    "gemini:Kore",
+    "gemini:Fenrir",
+    "gemini:Aoede",
+    "gemini:Charon",
+    "gemini:Achird",
+    "gemini:Orus"
+   ],
+   "credencial_env": "GEMINI_API_KEY",
+   "quota": {
+    "detection": "provider_error",
+    "period": "daily",
+    "limit": null
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "call",
+    "amount_per_unit": 0.0071,
+    "last_verified_at": "2026-11-06",
+    "valid_until": "2026-12-31",
+    "fonte": "aistudio.google.com/docs/pricing (tier pago, Standard), lido em 2026-11-06",
+    "tabela": "entrada US$ 0,50/1M · saída US$ 6,00/1M tokens de áudio (US$ 0,00015/s); dobra em 01/01/2027",
+    "como_estimado": "teto por fala: 45 s × 0,00015 + texto ≈ US$ 0,0071"
+   }
+  },
+  {
+   "id": "voicestudio-local",
+   "enabled": false,
+   "stage": "tts",
+   "adaptador": "VoiceStudio",
+   "model": "voicestudio-clone-<seu-perfil>",
+   "tier": "free",
+   "tier_evidencia": "roda no computador do usuário (localhost:3900), sem API externa",
+   "commercial_use": "allowed",
+   "commercial_evidencia": "voz do próprio usuário, clonada por ele",
+   "languages": [
+    "pt-BR"
+   ],
+   "capabilities": [
+    "tts",
+    "voz_clonada"
+   ],
+   "quality": "high",
+   "voice_profiles": [
+    "voicestudio:<seu-perfil>"
+   ],
+   "quota": {
+    "detection": "local",
+    "period": null,
+    "limit": null
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "call",
+    "amount_per_unit": 0,
+    "last_verified_at": "2026-11-06",
+    "fonte": "local"
+   },
+   "nota_publica": "Voz clonada local (VoiceStudio). Para usar: crie seu perfil, troque <seu-perfil> pelo id e ligue enabled."
+  },
+  {
+   "id": "edge-tts",
+   "enabled": false,
+   "motivo_desabilitado": "biblioteca instalada, mas usa o endpoint do 'Ler em voz alta' do Edge (não é API oficial) e os termos não confirmam uso comercial",
+   "stage": "tts",
+   "adaptador": null,
+   "tier": "unknown",
+   "commercial_use": "unknown",
+   "languages": [
+    "pt-BR"
+   ],
+   "capabilities": [
+    "tts"
+   ],
+   "quality": "standard",
+   "voice_profiles": [],
+   "price": {
+    "currency": "USD",
+    "unit": "call",
+    "amount_per_unit": null
+   }
+  },
+  {
+   "id": "hf-wan22-i2v",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "HFWan",
+   "space": "zerogpu-aoti/wan2-2-fp8da-aoti-faster",
+   "model": "Wan2.2 I2V (Space ZeroGPU)",
+   "tier": "free",
+   "tier_evidencia": "Space público ZeroGPU; testado em 2026-11-06 sem token (8 clipes gerados, US$ 0)",
+   "commercial_use": "unknown",
+   "commercial_evidencia": "pesos Wan2.2 publicados como Apache-2.0, mas os termos do Space/ZeroGPU para uso comercial não foram conferidos",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "atuacao"
+   ],
+   "quality": "standard",
+   "quality_evidencia": "atuação aprovada pelo inspetor (c1a, c1c v1, d2, d3); saída 560×832 a 16 fps (ampliada)",
+   "duracoes": [
+    2,
+    5
+   ],
+   "referencias_preservadas": true,
+   "credencial_env": "HF_TOKEN",
+   "credencial_opcional": true,
+   "quota": {
+    "detection": "provider_error",
+    "period": "rolling",
+    "limit": null,
+    "reset_horas": 4,
+    "nota": "ZeroGPU = tempo de GPU com reposição contínua (medido 2026-11-06: 3–4 clipes por janela sem token; voltou em ~3 h)"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "clip",
+    "amount_per_unit": 0,
+    "last_verified_at": "2026-11-06",
+    "fonte": "Space gratuito"
+   },
+   "perfil": {
+    "fala": 0.2,
+    "cinematografico": 0.6,
+    "i2v_personagem": 0.7,
+    "simples": 0.7
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "id": "fal-kling26-pro",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "FalClipe",
+   "model": "fal-ai/kling-video/v2.6/pro/image-to-video",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "atuacao",
+    "ultimo_quadro"
+   ],
+   "quality": "high",
+   "duracoes": [
+    5,
+    10
+   ],
+   "referencias_preservadas": true,
+   "credencial_env": "FAL_KEY",
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.07,
+    "last_verified_at": "2026-11-06",
+    "fonte": "API oficial de preços do fal"
+   },
+   "perfil": {
+    "fala": 0.3,
+    "cinematografico": 0.8,
+    "i2v_personagem": 0.8,
+    "simples": 0.6
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "id": "fal-kling3-pro",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "FalClipe",
+   "model": "fal-ai/kling-video/v3/pro/image-to-video",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "atuacao",
+    "ultimo_quadro",
+    "identidade"
+   ],
+   "quality": "premium",
+   "quality_evidencia": "c1b v3 e c1c v2 aprovados (2026-11-06)",
+   "duracoes": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "referencias_preservadas": true,
+   "credencial_env": "FAL_KEY",
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.14,
+    "last_verified_at": "2026-11-06",
+    "fonte": "API oficial de preços do fal"
+   },
+   "perfil": {
+    "fala": 0.3,
+    "cinematografico": 0.9,
+    "i2v_personagem": 0.9,
+    "simples": 0.5
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "id": "hf-wan22-s2v",
+   "enabled": true,
+   "stage": "lipsync",
+   "adaptador": "HFS2V",
+   "space": "Wan-AI/Wan2.2-S2V",
+   "model": "Wan2.2 S2V (Space oficial)",
+   "tier": "free",
+   "tier_evidencia": "Space público ZeroGPU (mesma cota do Wan I2V)",
+   "commercial_use": "unknown",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "lipsync",
+    "fala_em_quadro"
+   ],
+   "quality": "standard",
+   "quality_evidencia": "não testado até o fim (cota acabou) — tratar como não comprovado",
+   "credencial_env": "HF_TOKEN",
+   "credencial_opcional": true,
+   "quota": {
+    "detection": "provider_error",
+    "period": "rolling",
+    "limit": null,
+    "reset_horas": 4,
+    "nota": "ZeroGPU = tempo de GPU com reposição contínua (medido 2026-11-06: 3–4 clipes por janela sem token; voltou em ~3 h)",
+    "compartilha_cota_com": "hf-wan22-i2v"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "clip",
+    "amount_per_unit": 0,
+    "last_verified_at": "2026-11-06",
+    "fonte": "Space gratuito"
+   },
+   "perfil": {
+    "fala": 0.7,
+    "cinematografico": 0.1,
+    "i2v_personagem": 0.4,
+    "simples": 0.2
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "id": "fal-kling-avatar-std",
+   "enabled": true,
+   "stage": "lipsync",
+   "adaptador": "FalLipsync",
+   "model": "fal-ai/kling-video/ai-avatar/v2/standard",
+   "rota": "avatar",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "lipsync",
+    "fala_em_quadro"
+   ],
+   "quality": "high",
+   "credencial_env": "FAL_KEY",
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.0562,
+    "last_verified_at": "2026-11-06",
+    "fonte": "API oficial de preços do fal"
+   },
+   "perfil": {
+    "fala": 0.9,
+    "cinematografico": 0.1,
+    "i2v_personagem": 0.5,
+    "simples": 0.2
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "id": "fal-omnihuman15",
+   "enabled": true,
+   "stage": "lipsync",
+   "adaptador": "FalLipsync",
+   "model": "fal-ai/bytedance/omnihuman/v1.5",
+   "rota": "omnihuman",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "lipsync",
+    "fala_em_quadro",
+    "fala_com_corpo"
+   ],
+   "quality": "high",
+   "credencial_env": "FAL_KEY",
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.16,
+    "last_verified_at": "2026-11-06",
+    "fonte": "API oficial de preços do fal (mesmo valor de contrato.py ROTAS)"
+   },
+   "perfil": {
+    "fala": 0.9,
+    "cinematografico": 0.3,
+    "i2v_personagem": 0.6,
+    "simples": 0.2
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige"
+  },
+  {
+   "id": "openai-gpt-image",
+   "enabled": true,
+   "stage": "imagem",
+   "adaptador": "OpenAIImagem",
+   "model": "gpt-image-2.5-sunburst",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "imagem",
+    "referencia",
+    "edicao"
+   ],
+   "quality": "high",
+   "referencias_preservadas": true,
+   "credencial_env": "OPENAI_API_KEY",
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "image",
+    "amount_per_unit": 0.05,
+    "last_verified_at": "2026-11-03",
+    "fonte": "medição da conta (qualidade medium, 1024×1536)"
+   }
+  },
+  {
+   "id": "local-trilha",
+   "enabled": true,
+   "stage": "musica",
+   "adaptador": null,
+   "nota": "trilha_gratis.py (sintetizada no computador) — chamada direta; ainda sem adaptador no roteador",
+   "tier": "free",
+   "commercial_use": "allowed",
+   "commercial_evidencia": "gerada localmente pelo próprio script",
+   "capabilities": [
+    "musica"
+   ],
+   "quality": "standard",
+   "price": {
+    "currency": "USD",
+    "unit": "track",
+    "amount_per_unit": 0,
+    "last_verified_at": "2026-11-06",
+    "fonte": "local"
+   }
+  },
+  {
+   "id": "fal-elevenlabs-music",
+   "enabled": false,
+   "motivo_desabilitado": "sem adaptador no roteador ainda (trilha_ia.py chama direto); licença de sincronização para uso comercial não conferida",
+   "stage": "musica",
+   "adaptador": null,
+   "model": "fal-ai/elevenlabs/music",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "capabilities": [
+    "musica"
+   ],
+   "quality": "high",
+   "price": {
+    "currency": "USD",
+    "unit": "minute",
+    "amount_per_unit": 0.6,
+    "last_verified_at": "2026-11-06",
+    "fonte": "API oficial de preços do fal"
+   }
+  },
+  {
+   "id": "hf-ltx-distilled",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "GradioSpace",
+   "space": "Lightricks/ltx-video-distilled",
+   "model": "LTX-Video distilled (Space oficial Lightricks)",
+   "tier": "free",
+   "tier_evidencia": "Space público em ZeroGPU, RUNNING e com API lida em 2026-11-07 (huggingface.co/api/spaces + gradio view_api)",
+   "commercial_use": "unknown",
+   "commercial_evidencia": "Space sem licença declarada; pesos LTX-Video têm licença própria da Lightricks — não conferida para uso comercial",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "t2v"
+   ],
+   "quality": "standard",
+   "quality_evidencia": "não medido pelo inspetor ainda — a taxa de aprovação nasce no 1º uso",
+   "faixa_duracao": [
+    0.3,
+    8.5
+   ],
+   "referencias_preservadas": true,
+   "credencial_env": "HF_TOKEN",
+   "credencial_opcional": true,
+   "gradio": {
+    "api_name": "/image_to_video",
+    "prompt": "prompt",
+    "negativo": "negative_prompt",
+    "imagem": "input_image_filepath",
+    "duracao": "duration_ui",
+    "largura": "width_ui",
+    "altura": "height_ui",
+    "fixos": {
+     "mode": "image-to-video"
+    }
+   },
+   "perfil": {
+    "fala": 0.1,
+    "cinematografico": 0.5,
+    "i2v_personagem": 0.5,
+    "simples": 0.8
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige",
+   "quota": {
+    "detection": "provider_error",
+    "period": "rolling",
+    "limit": null,
+    "reset_horas": 4,
+    "compartilha_cota_com": "hf-wan22-i2v",
+    "nota": "cota ZeroGPU é da conta/IP e vale para TODOS os Spaces ZeroGPU (não contornamos: uma identidade, sem trocar de IP)"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "clip",
+    "amount_per_unit": 0,
+    "last_verified_at": "2026-11-07",
+    "fonte": "Space gratuito (ZeroGPU)"
+   },
+   "verificacao": "duração 0,3–8,5 s, 256–1280 px (sliders do Space, 2026-11-07)"
+  },
+  {
+   "id": "hf-ltx2-turbo",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "GradioSpace",
+   "space": "alexnasa/ltx-2-TURBO",
+   "model": "LTX-2 Turbo (Space comunitário)",
+   "tier": "free",
+   "tier_evidencia": "Space público em ZeroGPU, RUNNING e com API lida em 2026-11-07 (huggingface.co/api/spaces + gradio view_api)",
+   "commercial_use": "unknown",
+   "commercial_evidencia": "Space comunitário sem licença declarada",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "t2v",
+    "ultimo_quadro"
+   ],
+   "quality": "standard",
+   "quality_evidencia": "não medido pelo inspetor ainda — a taxa de aprovação nasce no 1º uso",
+   "faixa_duracao": null,
+   "referencias_preservadas": true,
+   "credencial_env": "HF_TOKEN",
+   "credencial_opcional": true,
+   "gradio": {
+    "api_name": "/generate_video",
+    "prompt": "prompt",
+    "imagem": "first_frame",
+    "ultimo_quadro": "end_frame",
+    "imagem_caminho": true,
+    "fixos": {
+     "generation_mode": "Image-to-Video",
+     "enhance_prompt": false,
+     "camera_lora": "No LoRA"
+    }
+   },
+   "perfil": {
+    "fala": 0.3,
+    "cinematografico": 0.7,
+    "i2v_personagem": 0.6,
+    "simples": 0.7
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige",
+   "quota": {
+    "detection": "provider_error",
+    "period": "rolling",
+    "limit": null,
+    "reset_horas": 4,
+    "compartilha_cota_com": "hf-wan22-i2v",
+    "nota": "cota ZeroGPU é da conta/IP e vale para TODOS os Spaces ZeroGPU (não contornamos: uma identidade, sem trocar de IP)"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "clip",
+    "amount_per_unit": 0,
+    "last_verified_at": "2026-11-07",
+    "fonte": "Space gratuito (ZeroGPU)"
+   },
+   "verificacao": "o Space NÃO expõe a duração na API (sai a padrão do Space) — o inspetor confere a duração do clipe; 1º e último quadro aceitos"
+  },
+  {
+   "id": "hf-wan21-fast",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "GradioSpace",
+   "space": "multimodalart/wan2-1-fast",
+   "model": "Wan 2.1 I2V fast (Space multimodalart)",
+   "tier": "free",
+   "tier_evidencia": "Space público em ZeroGPU, RUNNING e com API lida em 2026-11-07 (huggingface.co/api/spaces + gradio view_api)",
+   "commercial_use": "unknown",
+   "commercial_evidencia": "Space sem licença declarada (pesos Wan 2.1: Apache-2.0)",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v"
+   ],
+   "quality": "standard",
+   "quality_evidencia": "não medido pelo inspetor ainda — a taxa de aprovação nasce no 1º uso",
+   "faixa_duracao": [
+    0.3,
+    3.4
+   ],
+   "referencias_preservadas": true,
+   "credencial_env": "HF_TOKEN",
+   "credencial_opcional": true,
+   "gradio": {
+    "api_name": "/generate_video",
+    "prompt": "prompt",
+    "negativo": "negative_prompt",
+    "imagem": "input_image",
+    "duracao": "duration_seconds",
+    "largura": "width",
+    "altura": "height"
+   },
+   "perfil": {
+    "fala": 0.1,
+    "cinematografico": 0.4,
+    "i2v_personagem": 0.5,
+    "simples": 0.7
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige",
+   "quota": {
+    "detection": "provider_error",
+    "period": "rolling",
+    "limit": null,
+    "reset_horas": 4,
+    "compartilha_cota_com": "hf-wan22-i2v",
+    "nota": "cota ZeroGPU é da conta/IP e vale para TODOS os Spaces ZeroGPU (não contornamos: uma identidade, sem trocar de IP)"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "clip",
+    "amount_per_unit": 0,
+    "last_verified_at": "2026-11-07",
+    "fonte": "Space gratuito (ZeroGPU)"
+   },
+   "verificacao": "duração 0,3–3,4 s, 128–896 px (sliders, 2026-11-07)"
+  },
+  {
+   "id": "hf-wan22-lightning",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "GradioSpace",
+   "space": "Saravutw/WAN2.2_I2V_LIGHTNING_4-8step_custom",
+   "model": "Wan 2.2 I2V Lightning 4–8 passos (Space comunitário)",
+   "tier": "free",
+   "tier_evidencia": "Space público em ZeroGPU, RUNNING e com API lida em 2026-11-07 (huggingface.co/api/spaces + gradio view_api)",
+   "commercial_use": "unknown",
+   "commercial_evidencia": "Space declara apache-2.0; termos de uso do ZeroGPU para fins comerciais não conferidos",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "atuacao",
+    "ultimo_quadro"
+   ],
+   "quality": "standard",
+   "quality_evidencia": "não medido pelo inspetor ainda — a taxa de aprovação nasce no 1º uso",
+   "faixa_duracao": [
+    0.5,
+    10.0
+   ],
+   "referencias_preservadas": true,
+   "credencial_env": "HF_TOKEN",
+   "credencial_opcional": true,
+   "gradio": {
+    "api_name": "/generate_video",
+    "prompt": "prompt",
+    "negativo": "negative_prompt",
+    "imagem": "input_image",
+    "ultimo_quadro": "last_image",
+    "duracao": "duration_seconds",
+    "fixos": {
+     "safe_mode": true
+    }
+   },
+   "perfil": {
+    "fala": 0.2,
+    "cinematografico": 0.6,
+    "i2v_personagem": 0.7,
+    "simples": 0.7
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige",
+   "quota": {
+    "detection": "provider_error",
+    "period": "rolling",
+    "limit": null,
+    "reset_horas": 4,
+    "compartilha_cota_com": "hf-wan22-i2v",
+    "nota": "cota ZeroGPU é da conta/IP e vale para TODOS os Spaces ZeroGPU (não contornamos: uma identidade, sem trocar de IP)"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "clip",
+    "amount_per_unit": 0,
+    "last_verified_at": "2026-11-07",
+    "fonte": "Space gratuito (ZeroGPU)"
+   },
+   "verificacao": "duração 0,5–10 s, 1º e último quadro (sliders, 2026-11-07)"
+  },
+  {
+   "id": "alibaba-wan22-i2v-flash",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "AlibabaWan",
+   "model": "wan2.2-i2v-flash",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "commercial_evidencia": "termos do Model Studio não conferidos para publicidade",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "atuacao"
+   ],
+   "quality": "standard",
+   "quality_evidencia": "não medido",
+   "resolucoes": [
+    "480P",
+    "720P"
+   ],
+   "resolucao_padrao": "480P",
+   "faixa_duracao": null,
+   "duracao_nota": "a doc dá 2–15 s para a família; limite por modelo não publicado — o provedor recusa o que não aceitar",
+   "referencias_preservadas": true,
+   "credencial_env": "DASHSCOPE_API_KEY",
+   "base_env": "DASHSCOPE_BASE_URL",
+   "timeout_s": 1200,
+   "perfil": {
+    "fala": 0.2,
+    "cinematografico": 0.6,
+    "i2v_personagem": 0.7,
+    "simples": 0.8
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige",
+   "quota": {
+    "detection": "provider_error",
+    "period": null,
+    "limit": null,
+    "nota": "120 RPM (Singapura); sem franquia grátis para usuário novo desde 2026-10-29"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.015,
+    "por_resolucao": {
+     "480P": 0.015,
+     "720P": 0.036
+    },
+    "last_verified_at": "2026-11-07",
+    "fonte": "alibabacloud.com/help/en/model-studio/wan2-2-i2v-flash (Singapura, preço original sem promoção)"
+   }
+  },
+  {
+   "id": "alibaba-wan22-i2v-plus",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "AlibabaWan",
+   "model": "wan2.2-i2v-plus",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "atuacao"
+   ],
+   "quality": "high",
+   "quality_evidencia": "não medido (nível plus da família)",
+   "resolucoes": [
+    "480P",
+    "720P",
+    "1080P"
+   ],
+   "resolucao_padrao": "720P",
+   "faixa_duracao": null,
+   "referencias_preservadas": true,
+   "credencial_env": "DASHSCOPE_API_KEY",
+   "base_env": "DASHSCOPE_BASE_URL",
+   "perfil": {
+    "fala": 0.3,
+    "cinematografico": 0.7,
+    "i2v_personagem": 0.8,
+    "simples": 0.6
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige",
+   "quota": {
+    "detection": "provider_error"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": null,
+    "last_verified_at": "2026-11-07",
+    "fonte": "preço NÃO encontrado nas páginas oficiais → desconhecido (bloqueia gasto)"
+   }
+  },
+  {
+   "id": "ltx-23-fast",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "LTXApi",
+   "model": "ltx-2-3-fast",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "commercial_evidencia": "termos da LTX API não conferidos",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "ultimo_quadro"
+   ],
+   "quality": "standard",
+   "quality_evidencia": "não medido",
+   "resolucoes": [
+    "1280x720",
+    "720x1280",
+    "1920x1080",
+    "1080x1920"
+   ],
+   "resolucao_padrao": "1280x720",
+   "faixa_duracao": null,
+   "duracao_nota": "durações por modelo estão na página Supported Models (não lida); o provedor recusa o que não aceitar",
+   "referencias_preservadas": true,
+   "credencial_env": "LTX_API_KEY",
+   "timeout_s": 1200,
+   "perfil": {
+    "fala": 0.2,
+    "cinematografico": 0.7,
+    "i2v_personagem": 0.6,
+    "simples": 0.8
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige",
+   "quota": {
+    "detection": "provider_error",
+    "nota": "429 Queue limit exceeded"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.03,
+    "por_resolucao": {
+     "1280x720": 0.03,
+     "720x1280": 0.03,
+     "1920x1080": 0.06,
+     "1080x1920": 0.06
+    },
+    "last_verified_at": "2026-11-07",
+    "fonte": "docs.ltx.io/pricing (docs.ltx.video/pricing traz uma tabela antiga diferente)"
+   }
+  },
+  {
+   "id": "ltx-23-pro",
+   "enabled": true,
+   "stage": "video",
+   "adaptador": "LTXApi",
+   "model": "ltx-2-3-pro",
+   "tier": "paid",
+   "commercial_use": "unknown",
+   "languages": [
+    "*"
+   ],
+   "capabilities": [
+    "video",
+    "i2v",
+    "atuacao",
+    "ultimo_quadro"
+   ],
+   "quality": "high",
+   "quality_evidencia": "não medido (tier pro)",
+   "resolucoes": [
+    "1280x720",
+    "720x1280",
+    "1920x1080",
+    "1080x1920"
+   ],
+   "resolucao_padrao": "1280x720",
+   "faixa_duracao": null,
+   "referencias_preservadas": true,
+   "credencial_env": "LTX_API_KEY",
+   "timeout_s": 1200,
+   "perfil": {
+    "fala": 0.2,
+    "cinematografico": 0.8,
+    "i2v_personagem": 0.7,
+    "simples": 0.6
+   },
+   "perfil_fonte": "valor INICIAL configurável (não medido); o histórico de aprovação corrige",
+   "quota": {
+    "detection": "provider_error"
+   },
+   "price": {
+    "currency": "USD",
+    "unit": "second",
+    "amount_per_unit": 0.04,
+    "por_resolucao": {
+     "1280x720": 0.04,
+     "720x1280": 0.04,
+     "1920x1080": 0.08,
+     "1080x1920": 0.08
+    },
+    "last_verified_at": "2026-11-07",
+    "fonte": "docs.ltx.io/pricing"
+   }
+  }
+ ]
+}

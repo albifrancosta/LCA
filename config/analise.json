@@ -1,0 +1,50 @@
+{
+ "_leia": "Funções EXPLÍCITAS de cada modelo/ferramenta de análise e de geração/edição Gemini. Preços só com fonte oficial; null = desconhecido (bloqueia gasto, nunca é zero). Conferido em 2026-11-07 em aistudio.google.com/docs/pricing e /docs/models/gemini-omni-flash.",
+ "verificado_em": "2026-11-07",
+ "funcoes": {
+  "analise_visual": {"modelo": "gemini-3.8-flash", "uso": "inspeção multimodal de clipes, imagens-chave, figurino, anatomia, aparelhos, textos — UMA chamada por arquivo (qa_visual.pedido)"},
+  "analise_audio_mix": {"ferramenta": "local", "uso": "loudness/LUFS, silêncios, voz × trilha (especialistas.py trilha, mixar_comercial.py) — sempre local; Watch MCP não substitui"},
+  "quadros_e_transcricao": {"ferramenta": "watch_mcp_se_disponivel", "fallback": "cv2 (inspetor.folha) + whisper local (inspetor.palavras)", "uso": "o Claude usa as ferramentas do Watch MCP quando estiverem na sessão; os scripts Python usam o fallback local"},
+  "geracao_edicao_video": {"modelo": "gemini-omni-1.2-flash", "estado": "catalogado_desligado", "uso": "geração/edição/extensão de vídeo — só entra no roteador depois de um adaptador testado e preço por segundo confirmado na API"}
+ },
+ "modelos": {
+  "gemini-3.8-flash": {
+   "preco_entrada_por_1m": 0.75,
+   "preco_saida_por_1m": 3.75,
+   "valido_ate": "2026-12-31",
+   "preco_a_partir_de_2027-01-01": {"entrada_por_1m": 1.5, "saida_por_1m": 7.5},
+   "free_tier": "existe, mas os dados podem ser usados para melhorar produtos Google — não usar com material de cliente",
+   "fonte": "https://aistudio.google.com/docs/pricing (2026-11-07)"
+  },
+  "gemini-omni-1.2-flash": {
+   "estado": "Stable",
+   "preco_entrada_por_1m": 1.5,
+   "preco_saida_texto_por_1m": 9.0,
+   "preco_saida_video_por_1m": 12.0,
+   "preco_por_segundo": null,
+   "_preco_por_segundo": "a página de preços da API cobra por token; tokens por segundo de vídeo de saída não confirmados na doc da API (blog do Google cita US$ 0,07/s em 720p, não é a página de preços) → null",
+   "free_tier": false,
+   "capacidades": ["texto→vídeo", "imagem→vídeo", "edição por conversa (Interactions API)", "extensão", "interpolação 1º/último quadro", "áudio nativo"],
+   "duracao_s": [3, 15],
+   "resolucoes": ["360p", "720p", "1080p", "4K"],
+   "fps": 24,
+   "fonte": "https://aistudio.google.com/docs/models/gemini-omni-flash + /docs/pricing (2026-11-07)"
+  },
+  "gemini-omni-1.1-flash": {
+   "estado": "Stable — passa a apontar para gemini-omni-1.2-flash em 2026-12-03 (cobrado como 1.2)",
+   "preco_entrada_por_1m": 1.5,
+   "preco_saida_video_por_1m": 17.5,
+   "preco_por_segundo": null,
+   "free_tier": false,
+   "fonte": "https://aistudio.google.com/docs/pricing (2026-11-07)"
+  }
+ },
+ "nao_usar": ["gemini-omni-flash-preview (desligado)", "aliases sem versão (não existem na doc oficial)"],
+ "estimativa_tokens": {
+  "_leia": "estimativa CONSERVADORA para reservar antes da chamada; o custo confirmado vem do usageMetadata da resposta × preço oficial",
+  "video_por_s": 300,
+  "por_imagem": 1300,
+  "texto": 1500,
+  "saida": 2500
+ }
+}
