@@ -1,12 +1,14 @@
 # LCA — Light. Camera. Action. 🎬
 
+🇧🇷 **Português** | [🇺🇸 English](README.en.md)
+
 **Um estúdio de vídeo com IA dentro do Claude Code, em português.**
 
 Você diz o vídeo que quer — *"um comercial de 30 segundos para a minha loja"*, *"um vídeo de Natal agradecendo os clientes"*, *"corta as pausas desse vídeo e coloca legenda"* — e o LCA faz o trabalho de uma produtora inteira: entrevista você, escreve o roteiro, desenha o storyboard, dirige as imagens e as animações, grava a narração, escolhe a trilha, monta no Remotion, confere tudo e entrega o MP4 pronto para Reels, TikTok, Shorts ou YouTube.
 
 Você não precisa saber produzir vídeo. Você aprova; o LCA faz.
 
-> **English summary:** LCA is a Portuguese-first Claude Code skill that works as a full AI video studio — interview → script → storyboard → images → animation → TTS narration → music → Remotion edit → QA → final MP4 — with three approval checkpoints and strict cost control (free paths first; paid APIs only with explicit confirmation).
+> **English:** full documentation in [README.en.md](README.en.md). LCA is a Portuguese-first Claude Code skill that works as an AI video studio, with three approval checkpoints and strict cost control.
 
 ---
 
