@@ -110,7 +110,7 @@ Descreva a tarefa num JSON (job_id = o vídeo, scene_id, task_type, mode preview
   `"ativo": false` em `config/roteamento.json` — os scripts antigos (`gerar_clipe_fal.py`, `lipsync.py`, `gerar_imagem.py`,
   `tts_gemini.py`) continuam funcionando direto.
 
-### Portões de qualidade e custo (2026-11-06 — auditoria P01–P56, `docs/auditoria-2026-11-06-correcoes.md`)
+### Portões de qualidade e custo (2026-11-06)
 Nada avança por omissão — **falha fechado**. Regras que valem em todos os scripts (módulo comum `scripts/integridade.py`):
 - **QA tem 3 estados:** `aprovado` · `reprovado` · `nao_verificado`. Só `aprovado` entra na montagem final. Sem Gemini, a parte
   visual fica `nao_verificado` até EU olhar a folha de quadros e gravar: `inspetor.py revisar roteiro.json --planos d2 --estado
