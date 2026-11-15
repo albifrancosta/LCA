@@ -26,7 +26,7 @@ Opcionais (cada um liga uma função; sem eles a skill segue por outro caminho):
 ## Instalação
 
 ```bash
-git clone https://github.com/<seu-usuario>/LCA.git ~/.claude/skills/criador-video
+git clone https://github.com/albifrancosta/LCA.git ~/.claude/skills/criador-video
 cd ~/.claude/skills/criador-video
 pip install -r requirements.txt
 python scripts/instalar_agentes.py instalar     # copia os agentes do estúdio para ~/.claude/agents
