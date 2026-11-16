@@ -9,6 +9,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import runware_falso as F  # noqa: E402
 from runware_falso import rw  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 
 def tmp():
     return tempfile.mkdtemp(prefix="rwp-")

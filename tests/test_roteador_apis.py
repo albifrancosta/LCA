@@ -17,6 +17,10 @@ SCRIPTS = AQUI.parent / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 import provedores as pv  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 REGRAS = {"ativo": True,
           "routing": {"policy": "free_first", "politicas_validas": ["free_first", "best_value", "lowest_cost", "premium", "manual"],
                       "allow_paid_fallback": True, "retry": {"max_attempts_per_provider": 2, "respect_retry_after": True,
@@ -239,7 +243,8 @@ def test_15_rollback_roteador_desligado_e_scripts_antigos_intactos():
         except SystemExit as e:
             assert "desligado" in str(e)
     for s in ("gerar_clipe_fal.py", "lipsync.py", "gerar_imagem.py", "tts_gemini.py"):
-        r = subprocess.run([sys.executable, str(SCRIPTS / s), "--help"], capture_output=True, text=True, encoding="utf-8", errors="replace")
+        r = subprocess.run([sys.executable, str(SCRIPTS / s), "--help"], capture_output=True, text=True, encoding="utf-8", errors="replace",
+                           env={**os.environ, "PYTHONIOENCODING": "utf-8"})
         assert r.returncode == 0, s
 
 

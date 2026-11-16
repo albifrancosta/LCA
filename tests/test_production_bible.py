@@ -20,6 +20,10 @@ import supervisor_continuidade as sup  # noqa: E402
 from cinematografia import board_generator as bg  # noqa: E402
 from cinematografia import production_bible as pb  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 ANALISE_LIMPA = {"criterios": [], "identidade": [{"personagem": "ana", "rosto_igual_ficha": True}],
                  "anatomia": [{"personagem": "ana", "bracos": 2, "maos": 2, "dedos_ok": True, "segundo": 1.0}],
                  "figurino": [{"personagem": "ana", "peca": "blusa azul", "na_ficha": True, "no_corpo": True}],

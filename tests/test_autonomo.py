@@ -11,6 +11,10 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(AQUI, "..", "scripts"))
 import autonomo  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 BEATS = [{"ate": 2.0, "fase": "antecipacao", "en": "he looks at the phone"},
          {"ate": 4.0, "fase": "acao", "en": "he picks it up"},
          {"ate": 5.0, "fase": "reacao", "en": "he smiles"}]

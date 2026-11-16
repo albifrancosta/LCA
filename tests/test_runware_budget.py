@@ -11,6 +11,10 @@ import runware_falso as F  # noqa: E402
 import test_runware_router as R  # noqa: E402
 import provedores as pv  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 
 def reservas():
     return json.load(open(os.path.join(pv.MEM, "reservas.json"), encoding="utf-8"))["reservas"]

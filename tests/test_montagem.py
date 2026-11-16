@@ -72,6 +72,10 @@ mh = carregar("montar_historia")
 pr = carregar("preparar_remotion")
 from integridade import sha256, sha256_texto  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 # ------------------------------------------------------------------ utilitários
 
 

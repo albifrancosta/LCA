@@ -901,8 +901,9 @@ class Adaptador:
 
     def rodar(self, cmd, timeout=1200):
         try:
+            import chaves  # ambiente mínimo: sistema + só a chave deste provedor
             r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout,
-                               env={**os.environ, "PYTHONIOENCODING": "utf-8"})
+                               env=chaves.env_filho([self.p.get("credencial_env")]))
         except subprocess.TimeoutExpired as e:
             raise ErroProvedor("timeout_ambiguo", f"processo passou de {timeout}s") from e
         return r.returncode, (r.stdout or "") + (r.stderr or "")

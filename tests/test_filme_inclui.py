@@ -11,6 +11,10 @@ import runware_falso as F  # noqa: E402
 import inspetor  # noqa: E402
 import integridade as ig  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 
 def projeto():
     d = tempfile.mkdtemp(prefix="fi-")

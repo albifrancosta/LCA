@@ -26,6 +26,10 @@ import provedores as pv  # noqa: E402
 import projeto as pj  # noqa: E402
 import qa_visual as qv  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 ELENCO = {"marcos": {"ref": "assets/referencia/ref-marcos.png", "tracos": ["cabelo castanho ondulado", "barba curta castanha"],
                      "figurino": ["camisa social lavanda, gola aberta com os dois primeiros botões abertos, pescoço à mostra",
                                   "calça jeans azul-escura", "smartwatch preto"]},

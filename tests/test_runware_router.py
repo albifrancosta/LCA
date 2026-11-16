@@ -11,6 +11,10 @@ sys.path.insert(0, AQUI)
 import runware_falso as F  # noqa: E402
 import provedores as pv  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 REAIS = {p["id"]: p for p in json.load(io.open(os.path.join(AQUI, "..", "config", "provedores.json"), encoding="utf-8"))["provedores"]}
 IDS = ["runware-kling26-pro", "runware-kling3-pro", "fal-kling26-pro", "runware-avatar-std", "runware-omnihuman15", "fal-kling-avatar-std"]
 REGRAS = {"ativo": True, "routing": {"policy": "runware_primary", "allow_paid_fallback": True,

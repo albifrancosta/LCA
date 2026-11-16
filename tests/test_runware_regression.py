@@ -12,6 +12,10 @@ sys.path.insert(0, AQUI)
 import runware_falso as F  # noqa: E402
 import provedores as pv  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 ANTIGAS = ["test_contrato_qa.py", "test_custos_roteamento.py", "test_montagem.py", "test_roteador_apis.py", "test_autonomo.py",
            "test_conferencia.py", "test_especialistas.py"]
 ENV = dict(os.environ, PYTHONIOENCODING="utf-8")

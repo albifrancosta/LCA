@@ -15,6 +15,27 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(AQUI, "..", "scripts"))
 import conferencia as cf  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
+class Pulado(Exception):
+    """Teste pulado: depende de um pacote opcional que não está instalado."""
+
+
+PACOTE = {"skimage": "scikit-image", "gradio_client": "gradio-client"}
+
+
+def requer(modulo):
+    import importlib.util
+    try:
+        achou = importlib.util.find_spec(modulo) is not None
+    except (ImportError, ValueError):
+        achou = False
+    if not achou:
+        raise Pulado(f"precisa de {modulo} (opcional: pip install {PACOTE.get(modulo, modulo)})")
+
+
 FPS, DUR, SR = 25, 3.2, 16000
 BOCA = (120, 140, 80, 50)  # x, y, w, h
 
@@ -55,6 +76,7 @@ def caixa_fixa(quadros):
 
 
 def test_lipsync_em_tempo_aprova():
+    requer("librosa")
     p = tempfile.mkdtemp()
     vid, wav = clipe_falando(p, 0.0)
     r = cf.conferir_lipsync_clipe(vid, wav, caixa_fixa)
@@ -64,6 +86,7 @@ def test_lipsync_em_tempo_aprova():
 
 
 def test_lipsync_atrasado_200ms_reprova_e_mede_o_atraso():
+    requer("librosa")
     p = tempfile.mkdtemp()
     vid, wav = clipe_falando(p, 0.2)
     r = cf.conferir_lipsync_clipe(vid, wav, caixa_fixa)
@@ -74,6 +97,7 @@ def test_lipsync_atrasado_200ms_reprova_e_mede_o_atraso():
 
 
 def test_lipsync_adiantado_tambem_reprova():
+    requer("librosa")
     p = tempfile.mkdtemp()
     vid, wav = clipe_falando(p, -0.16)
     r = cf.conferir_lipsync_clipe(vid, wav, caixa_fixa)
@@ -82,6 +106,7 @@ def test_lipsync_adiantado_tambem_reprova():
 
 
 def test_boca_parada_reprova():
+    requer("librosa")
     p = tempfile.mkdtemp()
     vid, wav = clipe_falando(p, 0.0, parada=True)
     r = cf.conferir_lipsync_clipe(vid, wav, caixa_fixa)
@@ -90,6 +115,7 @@ def test_boca_parada_reprova():
 
 
 def test_rosto_nao_encontrado_fica_nao_verificado():
+    requer("librosa")
     p = tempfile.mkdtemp()
     vid, wav = clipe_falando(p, 0.0)
     r = cf.conferir_lipsync_clipe(vid, wav, lambda q: [None] * len(q))
@@ -171,6 +197,7 @@ def test_storyboard_plano_faltando_ordem_duracao_e_quem_aparece():
 
 
 def test_storyboard_quadro_diferente_do_take_aprovado():
+    requer("skimage")
     base, d = projeto([{"id": "a", "dur_alvo": 3.0, "direcao": {"quem": ["marcos"], "enquadramento": "PM"}}])
     v = video_cor(base, 3.0)
     os.makedirs(os.path.join(base, "assets", "img"))
@@ -185,13 +212,17 @@ def test_storyboard_quadro_diferente_do_take_aprovado():
 
 if __name__ == "__main__":
     testes = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
-    ok = 0
+    ok = pulados = 0
     for t in testes:
         try:
             t()
             ok += 1
             print("✅", t.__name__)
+        except Pulado as e:
+            pulados += 1
+            print("⏭️ ", t.__name__, "— pulado:", e)
         except Exception as e:  # noqa: BLE001
-            print("❌", t.__name__, repr(e)[:300])
-    print(f"\n{ok}/{len(testes)} passaram")
-    sys.exit(0 if ok == len(testes) else 1)
+            print("❌", t.__name__, repr(e))
+    extra = f" · {pulados} pulados (pacote opcional ausente)" if pulados else ""
+    print(f"\n{ok}/{len(testes) - pulados} passaram{extra}")
+    sys.exit(0 if ok + pulados == len(testes) else 1)

@@ -2,6 +2,8 @@
 
 🇧🇷 **Português** | [🇺🇸 English](README.en.md)
 
+[![testes](https://github.com/albifrancosta/LCA/actions/workflows/testes.yml/badge.svg)](https://github.com/albifrancosta/LCA/actions/workflows/testes.yml)
+
 **Um estúdio de vídeo com IA dentro do Claude Code, em português.**
 
 Você diz o vídeo que quer — *"um comercial de 30 segundos para a minha loja"*, *"um vídeo de Natal agradecendo os clientes"*, *"corta as pausas desse vídeo e coloca legenda"* — e o LCA faz o trabalho de uma produtora inteira: entrevista você, escreve o roteiro, desenha o storyboard, dirige as imagens e as animações, grava a narração, escolhe a trilha, monta no Remotion, confere tudo e entrega o MP4 pronto para Reels, TikTok, Shorts ou YouTube.
@@ -270,7 +272,13 @@ docs/           documentação técnica (roteador, produção, exemplos)
 for t in tests/test_*.py; do python "$t"; done
 ```
 
-Rodam sem internet e sem gastar nada (os provedores pagos são simulados).
+Rodam sem internet e sem gastar nada (os provedores pagos são simulados). Os testes que dependem de pacotes opcionais
+(`librosa`, `gradio_client`, `scikit-image`) são **pulados com aviso** quando o pacote não está instalado. O GitHub
+roda tudo a cada envio, em Ubuntu e Windows.
+
+- Versões exatas com que os testes passaram: `requirements-lock.txt` (`pip install -r requirements-lock.txt`).
+- No Windows, se algum script mostrar erro de caractere (`UnicodeEncodeError`), rode antes `set PYTHONUTF8=1`
+  (ou `$env:PYTHONUTF8=1` no PowerShell). A skill já faz isso nos scripts que ela mesma chama.
 
 ---
 

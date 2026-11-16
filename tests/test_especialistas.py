@@ -13,6 +13,24 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(AQUI, "..", "scripts"))
 import especialistas as es  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
+class Pulado(Exception):
+    """Teste pulado: depende de um pacote opcional que não está instalado."""
+
+
+def requer(modulo):
+    import importlib.util
+    try:
+        achou = importlib.util.find_spec(modulo) is not None
+    except (ImportError, ValueError):
+        achou = False
+    if not achou:
+        raise Pulado(f"precisa de {modulo} (opcional: pip install {modulo.replace('_', '-')})")
+
+
 
 def projeto(planos, extra=None):
     base = tempfile.mkdtemp(prefix="esp-")
@@ -41,6 +59,7 @@ OUVIU_OK = lambda *a, **k: {"clima_por_bloco": {}, "problemas": [], "nota": 9}  
 
 # ---------------- trilha
 def test_trilha_loudness_buraco_e_corte_seco():
+    requer("librosa")
     base, d = projeto([{"id": "a", "dur_alvo": 8}])
     # som alto e constante até o fim (corte seco), com um buraco de 1,5 s no meio
     v = filme_som(base, "f.mp4", "aevalsrc='if(between(t,3,4.5),0,0.9*sin(2*PI*220*t))':s=48000:d=8")
@@ -51,6 +70,7 @@ def test_trilha_loudness_buraco_e_corte_seco():
 
 
 def test_trilha_voz_enterrada_na_musica():
+    requer("librosa")
     base, d = projeto([{"id": "a", "dur_alvo": 6}], {"mix": {"voz": 1.0, "trilha": 1.0}})
     voz, tri = os.path.join(base, "voz.wav"), os.path.join(base, "tri.wav")
     ff("-f", "lavfi", "-i", "sine=frequency=300:duration=6", "-af", "volume=0.3", voz)
@@ -63,6 +83,7 @@ def test_trilha_voz_enterrada_na_musica():
 
 
 def test_trilha_sem_gemini_nao_aprova():
+    requer("librosa")
     base, d = projeto([{"id": "a", "dur_alvo": 6}])
     v = filme_som(base, "f.mp4", "sine=frequency=300:duration=6", 6)
     es.conferir_trilha(base, d, v, ouvir=lambda *a, **k: None)
@@ -161,6 +182,7 @@ def test_atencao_roteiro_fala_rapida_sem_cta_e_nota_baixa():
 
 
 def test_atencao_filme_parado_tem_vale():
+    requer("librosa")
     base, d = projeto([{"id": "a", "dur_alvo": 8, "fala": "Peça uma demonstração"}])
     v = os.path.join(base, "parado.mp4")
     ff("-f", "lavfi", "-i", "color=c=navy:s=320x180:d=8:r=10", "-f", "lavfi", "-i", "anullsrc=r=48000:cl=mono", "-shortest",
@@ -173,13 +195,17 @@ def test_atencao_filme_parado_tem_vale():
 
 if __name__ == "__main__":
     testes = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
-    ok = 0
+    ok = pulados = 0
     for t in testes:
         try:
             t()
             ok += 1
             print("✅", t.__name__)
+        except Pulado as e:
+            pulados += 1
+            print("⏭️ ", t.__name__, "— pulado:", e)
         except Exception as e:  # noqa: BLE001
-            print("❌", t.__name__, repr(e)[:300])
-    print(f"\n{ok}/{len(testes)} passaram")
-    sys.exit(0 if ok == len(testes) else 1)
+            print("❌", t.__name__, repr(e))
+    extra = f" · {pulados} pulados (pacote opcional ausente)" if pulados else ""
+    print(f"\n{ok}/{len(testes) - pulados} passaram{extra}")
+    sys.exit(0 if ok + pulados == len(testes) else 1)

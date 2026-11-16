@@ -1,11 +1,12 @@
 # Núcleo (necessário)
+# Versões exatas testadas: requirements-lock.txt
 numpy>=1.26
 scipy>=1.11
 Pillow>=10.0
+opencv-python>=4.9        # inspeção dos quadros (usada no controle de qualidade)
 
 # Opcionais — cada um liga uma função; sem eles a skill usa outro caminho
 faster-whisper>=1.0        # transcrição local (legendas, conferência da fala)
-opencv-python>=4.9         # análise de quadros
 scikit-image>=0.22         # comparação de imagens (storyboard × filme)
 librosa>=0.10              # batida e estrutura da música
 praat-parselmouth>=0.4     # medição da voz (tom, ritmo)

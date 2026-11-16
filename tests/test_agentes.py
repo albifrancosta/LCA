@@ -11,6 +11,10 @@ SKILL = os.path.join(AQUI, "..")
 sys.path.insert(0, os.path.join(SKILL, "scripts"))
 import instalar_agentes as ia  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 AGENTES = sorted(glob.glob(os.path.join(SKILL, "agentes", "estudio-*.md")))
 
 

@@ -53,8 +53,9 @@ def agora():
 
 
 def rodar_cmd(cmd, timeout=1800):
+    import chaves  # ambiente mínimo: sistema + chaves do estúdio (o pipeline usa várias); segredos alheios não passam
     r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout,
-                       env=dict(os.environ, PYTHONIOENCODING="utf-8"))
+                       env=chaves.env_filho())
     return r.returncode, (r.stdout or "") + (r.stderr or "")
 
 

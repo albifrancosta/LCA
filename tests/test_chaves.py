@@ -15,6 +15,10 @@ sys.path.insert(0, SCRIPTS)
 import chaves  # noqa: E402
 import configurar  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 SEGREDO = "sk-teste-NAO-PODE-APARECER-1234567890"
 
 

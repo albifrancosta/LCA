@@ -190,6 +190,18 @@ def cmd_buscar(cena, termos, a):
     return cands
 
 
+# Downloads só de bancos conhecidos e por https (o candidatos.json pode ser editado à mão: nada de rede interna)
+DOMINIOS_STOCK = ("pexels.com", "pixabay.com", "mixkit.co")
+HOSTS_EXTRAS = ("player.vimeo.com",)  # o Pexels ainda entrega alguns arquivos antigos por aqui
+
+
+def url_permitida(url):
+    import urllib.parse
+    u = urllib.parse.urlparse(str(url))
+    h = (u.hostname or "").lower()
+    return u.scheme == "https" and (h in HOSTS_EXTRAS or any(h == d or h.endswith("." + d) for d in DOMINIOS_STOCK))
+
+
 def cmd_baixar(a):
     with open(a.candidatos, encoding="utf-8") as fh:
         dados = json.load(fh)
@@ -203,8 +215,13 @@ def cmd_baixar(a):
         nome = f"cena{dados['cena']}_{c['n']:02d}_{c['fonte']}{c['id']}.mp4"
         destino = os.path.join(pasta, nome)
         if not (os.path.exists(destino) and os.path.getsize(destino) > 0):
+            if not url_permitida(c["arquivo"]):
+                print(f"  recusado #{c['n']}: endereço fora dos bancos permitidos ({', '.join(DOMINIOS_STOCK)}) ou sem https")
+                continue
             req = urllib.request.Request(c["arquivo"], headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=120) as r, open(destino + ".part", "wb") as out:
+                if not url_permitida(r.geturl()):  # redirecionamento para fora dos bancos
+                    raise SystemExit(f"recusado #{c['n']}: o download foi redirecionado para fora dos bancos permitidos")
                 while True:
                     bloco = r.read(1 << 20)
                     if not bloco:

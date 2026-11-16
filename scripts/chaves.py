@@ -141,12 +141,17 @@ def origem(nome):
 
 
 def carregar(forcar=False):
-    """Põe em os.environ as chaves do .env e do registro do Windows, sem sobrescrever o que já existe."""
+    """Põe em os.environ as chaves do .env e do registro do Windows, sem sobrescrever o que já existe.
+    Num processo filho criado com env_filho(), só as chaves listadas em CRIADOR_VIDEO_CHAVES são carregadas."""
     global _carregado
     if _carregado and not forcar:
         return
     env = ler_env()
-    for nome in sorted(set(CHAVES) | set(env)):
+    alvo = set(CHAVES) | set(env)
+    restrito = os.environ.get("CRIADOR_VIDEO_CHAVES")
+    if restrito is not None:
+        alvo = {n for n in restrito.split(",") if n}
+    for nome in sorted(alvo):
         if os.environ.get(nome):
             continue
         v, fonte = env.get(nome), "arquivo .env"
@@ -156,6 +161,35 @@ def carregar(forcar=False):
             os.environ[nome] = v
             os.environ[f"_CV_ORIGEM_{nome}"] = fonte
     _carregado = True
+
+
+# variáveis do sistema que um processo filho precisa para rodar (Python, ffmpeg, Node, proxy, certificados)
+SISTEMA = {
+    "PATH", "PATHEXT", "SYSTEMROOT", "SYSTEMDRIVE", "WINDIR", "COMSPEC", "TEMP", "TMP", "TMPDIR", "HOME", "USERPROFILE",
+    "HOMEDRIVE", "HOMEPATH", "APPDATA", "LOCALAPPDATA", "PROGRAMDATA", "PROGRAMFILES", "PROGRAMFILES(X86)",
+    "PROGRAMW6432", "COMMONPROGRAMFILES", "COMMONPROGRAMFILES(X86)", "NUMBER_OF_PROCESSORS", "PROCESSOR_ARCHITECTURE",
+    "OS", "LANG", "LANGUAGE", "TERM", "SHELL", "USER", "USERNAME", "LOGNAME", "TZ", "VIRTUAL_ENV", "CONDA_PREFIX",
+    "PYTHONPATH", "PYTHONHOME", "PYTHONUTF8", "HF_HOME", "XDG_CACHE_HOME", "XDG_CONFIG_HOME", "XDG_DATA_HOME",
+    "SSL_CERT_FILE", "SSL_CERT_DIR", "REQUESTS_CA_BUNDLE", "CURL_CA_BUNDLE", "HTTP_PROXY", "HTTPS_PROXY", "NO_PROXY",
+    "NODE_PATH", "NODE_OPTIONS", "CUDA_VISIBLE_DEVICES",
+}
+PREFIXOS_SISTEMA = ("LC_", "CRIADOR_VIDEO_", "OMP_", "MKL_", "KMP_")
+
+
+def env_filho(permitidas=None):
+    """Ambiente mínimo para um processo filho: variáveis do sistema + SÓ as chaves que ele precisa.
+    permitidas=None → as chaves conhecidas do estúdio (CHAVES); lista → só essas. Segredos de outros sistemas
+    (tokens de nuvem, Git etc.) nunca passam. O filho também só recarrega do .env/registro o que estiver permitido."""
+    carregar()
+    nomes = set(CHAVES) if permitidas is None else {n for n in permitidas if n}
+    sistema = {s.upper() for s in SISTEMA}
+    env = {k: v for k, v in os.environ.items() if k.upper() in sistema or k.upper().startswith(PREFIXOS_SISTEMA)}
+    for n in nomes:
+        if os.environ.get(n):
+            env[n] = os.environ[n]
+    env["PYTHONIOENCODING"] = "utf-8"
+    env["CRIADOR_VIDEO_CHAVES"] = ",".join(sorted(nomes))
+    return env
 
 
 def mensagem_falta(nome, contexto=None):

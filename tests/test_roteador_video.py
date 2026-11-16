@@ -18,6 +18,24 @@ import provedores as pv  # noqa: E402
 import provedores_video as pvv  # noqa: E402
 import provider_discovery as pd  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
+class Pulado(Exception):
+    """Teste pulado: depende de um pacote opcional que não está instalado."""
+
+
+def requer(modulo):
+    import importlib.util
+    try:
+        achou = importlib.util.find_spec(modulo) is not None
+    except (ImportError, ValueError):
+        achou = False
+    if not achou:
+        raise Pulado(f"precisa de {modulo} (opcional: pip install {modulo.replace('_', '-')})")
+
+
 REGRAS = {"ativo": True, "routing": {"policy": "pontuacao", "politicas_validas": ["free_first", "pontuacao", "best_value", "lowest_cost", "manual"],
                                      "allow_paid_fallback": True, "retry": {"max_attempts_per_provider": 1, "backoff_base_s": 0.01, "backoff_max_s": 0.02},
                                      "circuit_breaker": {"falhas_para_abrir": 3, "esfriar_s": 600}},
@@ -222,6 +240,7 @@ class _CliGradio:
 
 
 def test_gradio_space_gera_e_respeita_faixa_de_duracao():
+    requer("gradio_client")
     td = tempfile.mkdtemp(prefix="rv-gr-")
     cli = _CliGradio(mp4(os.path.join(td, "out.mp4")))
     with Mem([SPACE]):
@@ -352,6 +371,9 @@ def rodar(ns):
             f()
             ok += 1
             print(f"✅ {nome}")
+        except Pulado as e:
+            ok += 1
+            print(f"⏭️  {nome} — pulado: {e}")
         except Exception as e:  # noqa: BLE001
             print(f"❌ {nome} {type(e).__name__}: {e}")
             traceback.print_exc(limit=4)

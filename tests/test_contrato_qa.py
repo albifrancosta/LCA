@@ -24,6 +24,10 @@ import integridade as ig  # noqa: E402
 import movimento  # noqa: E402
 import prompt_clipe  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 
 def silencioso(f, *a, **k):
     with redirect_stdout(io.StringIO()):

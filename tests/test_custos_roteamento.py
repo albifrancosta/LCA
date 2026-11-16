@@ -21,6 +21,10 @@ import gerar_clipe_fal as gcf  # noqa: E402
 import gerar_imagem  # noqa: E402
 import roteador  # noqa: E402
 
+if hasattr(sys.stdout, "reconfigure"):  # ✅/❌ em qualquer console
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+
 MOD = {"id": "fake/mod", "tipo": "video", "provedor": "fal", "preco_unidade": 0.1, "unidade": "seconds", "qualidade_base": 3,
        "recursos": {"i2v": True, "duracoes": [5, 10]}}
 

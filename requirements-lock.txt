@@ -1,0 +1,15 @@
+# Versões exatas com que os 19 conjuntos de teste do LCA passaram (Windows 11, Python 3.14, 2026-11-15).
+# Use se quiser reproduzir o ambiente testado:  pip install -r requirements-lock.txt
+# O requirements.txt (com >=) continua sendo o caminho normal de instalação.
+numpy==2.4.2
+scipy==1.17.0
+Pillow==11.3.0
+opencv-python==4.13.0.92
+faster-whisper==1.2.1
+scikit-image==0.26.0
+librosa==1.0.0
+praat-parselmouth==0.4.7
+moviepy==2.2.1
+gradio_client==2.7.2
+httpx==0.28.1
+PyYAML==6.0.3

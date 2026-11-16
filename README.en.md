@@ -2,6 +2,8 @@
 
 [🇧🇷 Português](README.md) | 🇺🇸 **English**
 
+[![testes](https://github.com/albifrancosta/LCA/actions/workflows/testes.yml/badge.svg)](https://github.com/albifrancosta/LCA/actions/workflows/testes.yml)
+
 **An AI video studio inside Claude Code.**
 
 Tell it the video you want — *"a 30-second ad for my store"*, *"a Christmas video thanking our customers"*, *"cut the pauses out of this video and add captions"* — and LCA does the work of a whole production company: it interviews you, writes the script, draws the storyboard, directs the images and the animation, records the narration, picks the music, edits everything in Remotion, checks the result and delivers an MP4 ready for Reels, TikTok, Shorts or YouTube.
@@ -272,7 +274,13 @@ docs/           technical docs (router, production, examples)
 for t in tests/test_*.py; do python "$t"; done
 ```
 
-They run offline and spend nothing (paid providers are mocked).
+They run offline and spend nothing (paid providers are mocked). Tests that need optional packages (`librosa`,
+`gradio_client`, `scikit-image`) are **skipped with a notice** when the package isn't installed. GitHub runs the whole
+suite on every push, on Ubuntu and Windows.
+
+- Exact versions the tests passed with: `requirements-lock.txt` (`pip install -r requirements-lock.txt`).
+- On Windows, if a script shows a character error (`UnicodeEncodeError`), run `set PYTHONUTF8=1` first
+  (or `$env:PYTHONUTF8=1` in PowerShell). The skill already does this for the scripts it launches itself.
 
 ---
 
