@@ -45,7 +45,12 @@ jobs:
           falhas=0
           for t in tests/test_*.py; do
             echo "::group::$t"
-            python "$t" || falhas=$((falhas+1))
+            if ! python "$t" > saida.txt 2>&1; then
+              falhas=$((falhas+1))
+              resumo=$(grep -E "❌|FAIL|Error|assert" saida.txt | tail -8 | sed 's/%/%25/g' | awk 'BEGIN{ORS="%0A"}{print}')
+              echo "::error title=$t falhou::$resumo"
+            fi
+            cat saida.txt
             echo "::endgroup::"
           done
           echo "suítes com falha: $falhas"
