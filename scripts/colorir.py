@@ -28,6 +28,9 @@ warnings.filterwarnings("ignore", message="Conversion from CIE-LAB")
 VIDEO = (".mp4", ".mov", ".webm")
 
 
+from integridade import relativo as _rel  # noqa: E402  (relpath seguro entre discos)
+
+
 def amostra_rgb(arq):
     """Pixels RGB 0–1 (reduzidos) de uma imagem ou de 5 quadros de um clipe."""
     if arq.lower().endswith(VIDEO):
@@ -116,7 +119,7 @@ def cena(cid, forca):
         ext = os.path.splitext(alvo)[1]
         lut = gerar_lut(ref, alvo, os.path.join(raiz, "assets", "cor", f"{t['id']}.cube"), forca)
         saida = aplicar(alvo, lut, os.path.join(raiz, "assets", "cor", f"{t['id']}{ext}"))
-        v["cor"] = os.path.relpath(saida, raiz).replace("\\", "/")
+        v["cor"] = _rel(saida, raiz).replace("\\", "/")
         print(f"  {t['id']}: {v['arquivo']} → {v['cor']}")
     salvar(arq, d, f"colorista: cenário {cid}")
 

@@ -34,6 +34,9 @@ import integridade as ig  # noqa: E402
 ORDEM = ["planejado", "gerado", "inspecionado", "corrigido_no_codigo", "renderizado", "verificado_no_render"]
 
 
+from integridade import relativo as _rel  # noqa: E402  (relpath seguro entre discos)
+
+
 def agora():
     return datetime.datetime.now().isoformat(timespec="seconds")
 
@@ -75,7 +78,7 @@ def nos_atuais(base, d):
     nos["composicao"] = {"hash": ig.sha256_texto(*[f"{os.path.basename(x)}:{_h_arq(x)}" for x in src]) if src else None, "deps": []}
     pub = sorted(glob.glob(os.path.join(base, "remotion", "public", "**", "*.*"), recursive=True))
     nos["audio_final"] = {"hash": ig.sha256_texto(*[_h_arq(x) for x in pub if x.endswith(".wav")]) if pub else None, "deps": []}
-    nos["midia_publica"] = {"hash": ig.sha256_texto(*[f"{os.path.relpath(x, base)}:{_h_arq(x)}" for x in pub
+    nos["midia_publica"] = {"hash": ig.sha256_texto(*[f"{_rel(x, base)}:{_h_arq(x)}" for x in pub
                                                       if x.endswith((".mp4", ".png", ".jpg"))]) if pub else None, "deps": []}
     nos["render"] = {"hash": None, "deps": ["composicao", "audio_final", "midia_publica"] + [k for k in nos if k.startswith(("clipe:", "voz:"))]}
     return nos
@@ -159,7 +162,7 @@ def registrar_render(base, video, d=None, verificado=False):
         d = json.load(io.open(os.path.join(base, "roteiro.json"), encoding="utf-8"))
     atual = nos_atuais(base, d)
     reg = _ler(base)
-    reg.setdefault("renders", {})[os.path.relpath(os.path.abspath(video), base).replace("\\", "/")] = {
+    reg.setdefault("renders", {})[_rel(os.path.abspath(video), base).replace("\\", "/")] = {
         "sha256": ig.sha256(video), "deps": retrato(atual), "quando": agora(), "verificado": verificado}
     ig.gravar_json_atomico(arq_estado(base), reg)
     return reg
@@ -173,7 +176,7 @@ def render_atual(base, video, atual=None, registro=None, d=None):
             d = json.load(io.open(os.path.join(base, "roteiro.json"), encoding="utf-8"))
         atual = nos_atuais(base, d)
     registro = registro or _ler(base)
-    r = (registro.get("renders") or {}).get(os.path.relpath(os.path.abspath(video), base).replace("\\", "/"))
+    r = (registro.get("renders") or {}).get(_rel(os.path.abspath(video), base).replace("\\", "/"))
     if not r:
         return {"estado": "desconhecido", "mudou": ["render sem retrato registrado (rode `estado_producao.py render --registrar`)"]}
     if not os.path.isfile(video) or ig.sha256(video) != r["sha256"]:

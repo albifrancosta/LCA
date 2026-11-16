@@ -31,6 +31,9 @@ import integridade as ig  # noqa: E402
 CUSTO = {"gerar_imagem": 0.05, "refazer_imagem": 0.05, "gerar_clipe": 0.27, "refazer_clipe": 0.27, "ficha": 0.05}
 
 
+from integridade import relativo as _rel  # noqa: E402  (relpath seguro entre discos)
+
+
 def agora():
     return datetime.datetime.now().isoformat(timespec="seconds")
 
@@ -306,7 +309,7 @@ def main():
         salvar(arq, d, f"{a.id}: {a.etapa} v{v['v']} invalidada — {a.motivo}")
         print(f"{a.id}: {a.etapa} v{v['v']} vai ser refeita ({a.motivo}); as outras tomadas não mudam")
     elif a.cmd == "registrar":
-        d.setdefault("projeto_arquivos", {})[a.item] = os.path.relpath(os.path.abspath(a.arquivo), raiz).replace("\\", "/")
+        d.setdefault("projeto_arquivos", {})[a.item] = _rel(os.path.abspath(a.arquivo), raiz).replace("\\", "/")
         if a.custo:
             d.setdefault("orcamento", {}).setdefault("gasto_extra", []).append({"item": a.item, "custo": a.custo, "quando": agora()})
         salvar(arq, d, f"{a.item}: {a.arquivo}")

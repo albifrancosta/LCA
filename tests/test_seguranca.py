@@ -107,6 +107,14 @@ def test_baixar_recusa_candidato_fora_da_lista_sem_tocar_na_rede():
         shutil.rmtree(d)
 
 
+def test_caminho_relativo_entre_discos_nao_quebra():
+    """Windows: projeto em D: e temporário em C: (como no GitHub Actions) — relpath puro levanta ValueError."""
+    import integridade as ig
+    r = ig.relativo(r"D:\a\video.mp4", r"C:\temp\proj")
+    assert isinstance(r, str) and r
+    assert ig.relativo(os.path.join("x", "y", "z.mp4"), "x").replace("\\", "/") == "y/z.mp4"
+
+
 if __name__ == "__main__":
     testes = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     ok = 0

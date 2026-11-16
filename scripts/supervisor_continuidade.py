@@ -68,6 +68,9 @@ CAUSAS = {
 }
 
 
+from integridade import relativo as _rel  # noqa: E402  (relpath seguro entre discos)
+
+
 def agora():
     return datetime.datetime.now().isoformat(timespec="seconds")
 
@@ -193,7 +196,7 @@ def inspecionar_take(base, take_id, video, analisador=None, narracao=None, b=Non
             try:
                 import inspetor
                 ev = inspetor.folha(video, os.path.join(pasta_cont(base), "inspecoes", f"{take_id}-folha.jpg"))
-                ev = os.path.relpath(ev, base).replace("\\", "/") if ev else None
+                ev = _rel(ev, base).replace("\\", "/") if ev else None
             except Exception:  # noqa: BLE001 — a folha é evidência, não portão
                 ev = None
         runs, _fps, _nq = congelamentos(video, [tuple(p) for p in (t.get("pausas") or [])])
@@ -229,7 +232,7 @@ def inspecionar_take(base, take_id, video, analisador=None, narracao=None, b=Non
         estado = ig.NAO_VERIFICADO
     else:
         estado = ig.APROVADO
-    rel = {"take_id": take_id, "video": os.path.relpath(video, base).replace("\\", "/"), "sha256": ig.sha256(video) if ok else None,
+    rel = {"take_id": take_id, "video": _rel(video, base).replace("\\", "/"), "sha256": ig.sha256(video) if ok else None,
            "estado": estado, "revisao_humana": estado == ig.NAO_VERIFICADO,
            "motivo_revisao": "; ".join(x for x in (("sem evidência: " + ", ".join(falta)) if falta else "",
                                                    f"confiança {confianca} < {cfg['confianca_minima']}" if baixa else "") if x),

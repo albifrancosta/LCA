@@ -51,6 +51,9 @@ Responda só JSON: {{"criterios": [{{"criterio": "…", "ok": true/false, "visto
 Marque grave: ação pedida não acontece; personagem diferente da ficha; deformação evidente; boca parada quando ele fala."""
 
 
+from integridade import relativo as _rel  # noqa: E402  (relpath seguro entre discos)
+
+
 def dur(arq):
     r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", arq], capture_output=True, text=True)
     return float(r.stdout.strip() or 0)
@@ -305,7 +308,7 @@ def inspecionar_imagem(base, p, d=None, visual=None):
     vis, refs, faltando = analisar_visual(base, img, c, d, quem, p["id"], "imagem", chamar=visual)
     if "indisponivel" in vis:
         r["refs_enviadas"] = [{"personagem": x["personagem"], "sha256": x["sha256"][:12], "origem": x["origem"]} for x in refs]
-        r["pendencias"].append(f"revisão visual da imagem ({vis['indisponivel'][:80]}) — olhar {os.path.relpath(img, base)}: braços, peças × ficha, "
+        r["pendencias"].append(f"revisão visual da imagem ({vis['indisponivel'][:80]}) — olhar {_rel(img, base)}: braços, peças × ficha, "
                                "tela dos aparelhos voltada para quem usa, texto desenhado")
     else:
         aplicar_visual(r, vis, {k: v for k, v in c.items() if k != "criterios"}, d, quem, refs, faltando)  # critérios são de movimento
@@ -404,7 +407,7 @@ def inspecionar_audio(base, d):
         arq = os.path.join(base, "assets", "voz", f"{p['id']}.wav")
         if p.get("fala") and not os.path.exists(arq):
             out.append({"id": p["id"], "fala": p["fala"], "cobertura": 0, "estado": ig.REPROVADO, "veredito": "reprovado",
-                        "problemas": [("grave", f"fala no roteiro sem áudio ({os.path.relpath(arq, base)})")]})
+                        "problemas": [("grave", f"fala no roteiro sem áudio ({_rel(arq, base)})")]})
             print(f"  {p['id']} ❌ sem áudio: {p['fala'][:50]}")
             continue
         if p.get("fala"):

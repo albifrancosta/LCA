@@ -28,6 +28,15 @@ class FalhaIntegridade(Exception):
     pass
 
 
+def relativo(caminho, base):
+    """os.path.relpath que não quebra quando caminho e base estão em discos diferentes no Windows (D: × C:):
+    nesse caso devolve o caminho absoluto."""
+    try:
+        return os.path.relpath(caminho, base)
+    except ValueError:
+        return os.path.abspath(caminho)
+
+
 def sha256(arq, bloco=1 << 20):
     h = hashlib.sha256()
     with open(arq, "rb") as f:

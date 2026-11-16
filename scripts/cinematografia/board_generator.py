@@ -32,6 +32,9 @@ SECOES = [("personagens", "Character Reference"), ("storyboard", "Storyboard"), 
 e = html.escape
 
 
+from integridade import relativo as _rel  # noqa: E402  (relpath seguro entre discos)
+
+
 def _src(base, rel):
     """Caminho da imagem relativo à pasta boards/ (o HTML continua navegável se a pasta do projeto mudar de lugar)."""
     if not rel:
@@ -39,7 +42,7 @@ def _src(base, rel):
     absoluto = rel if os.path.isabs(rel) else os.path.join(base, rel)
     if not os.path.exists(absoluto):
         return None
-    return os.path.relpath(absoluto, os.path.join(pb.pasta(base), "boards")).replace("\\", "/")
+    return _rel(absoluto, os.path.join(pb.pasta(base), "boards")).replace("\\", "/")
 
 
 def _img(base, rel, alt, larga=False, vazio="", ficha=False):
@@ -282,7 +285,7 @@ def gerar(base, cena=None, exportar_midia=True, todas_cenas=True):
             f, li = exportar(h, os.path.join(pasta, nome + ".png"), os.path.join(pasta, nome + ".pdf"))
             feitos += f
             lim += li
-    rel = [os.path.relpath(x, base).replace("\\", "/") for x in feitos]
+    rel = [_rel(x, base).replace("\\", "/") for x in feitos]
     ig.gravar_json_atomico(os.path.join(pasta, "export.json"),
                            {"gerado_em": datetime.datetime.now().isoformat(timespec="seconds"), "bible_hash": b["hash"],
                             "arquivos": rel, "limitacoes": lim})

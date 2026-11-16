@@ -63,6 +63,9 @@ ESTILO_LEGENDA = {"corLegenda": "#87C968", "alturaLegenda": 0.68, "tamanhoLegend
 VOZ_PADRAO = {"nome": "Charon", "tom": "suspense", "estilo": ""}
 
 
+from integridade import relativo as _rel  # noqa: E402  (relpath seguro entre discos)
+
+
 def ler_wav(arq):
     with wave.open(arq) as w:
         x = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float32) / 32768
@@ -399,10 +402,10 @@ def main():
                     (problemas if final else avisos).append(f"{p['id']}: {os.path.basename(arq)} é rascunho")
             principal = next((x for x in usados if os.path.isfile(x)), None)
             c["midia"] = {"tipo": "imagem" if principal else "nenhuma",
-                          "arquivo": os.path.relpath(principal, proj).replace(os.sep, "/") if principal else None,
+                          "arquivo": _rel(principal, proj).replace(os.sep, "/") if principal else None,
                           "sha256": sha256(principal) if principal else None,
                           "qa_estado": estado_inspecao(proj, p["id"])[0],
-                          "imagens": [{"arquivo": os.path.relpath(x, proj).replace(os.sep, "/"), "sha256": sha256(x),
+                          "imagens": [{"arquivo": _rel(x, proj).replace(os.sep, "/"), "sha256": sha256(x),
                                        "rascunho": eh_rascunho(x)} for x in usados if os.path.isfile(x)]}
         if not saida:  # 1º plano cobre o quadro 0 (gancho visível sem som, P07) — a voz segue no seu tempo
             i0 = 0.0

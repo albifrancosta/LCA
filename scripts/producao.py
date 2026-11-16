@@ -37,6 +37,9 @@ PLANOS = {"geral": "wide establishing shot", "medio": "medium shot", "americano"
 LENTES = {"24mm": "24mm wide lens", "35mm": "35mm lens", "50mm": "50mm lens", "85mm": "85mm portrait lens, shallow depth of field"}
 
 
+from integridade import relativo as _rel  # noqa: E402  (relpath seguro entre discos)
+
+
 def achar(pasta=None):
     p = os.path.abspath(pasta or os.getcwd())
     for _ in range(5):
@@ -283,7 +286,7 @@ def main():
         print(json.dumps(t, ensure_ascii=False, indent=1))
     elif a.cmd == "versao":
         t = tomada(d, a.id)
-        rel = os.path.relpath(os.path.abspath(a.arquivo), raiz).replace("\\", "/")
+        rel = _rel(os.path.abspath(a.arquivo), raiz).replace("\\", "/")
         tipo_midia = {"imagem": "imagem", "clipe": "video", "voz": "audio", "som": "audio"}[a.tipo]
         ok, motivo = ig.midia_valida(os.path.abspath(a.arquivo), tipo_midia)
         if not ok:
