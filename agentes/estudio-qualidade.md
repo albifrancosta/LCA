@@ -20,6 +20,7 @@ model: sonnet
 - Voz: `diretor_voz.py medir …`
 - Vídeo montado: `espectador.py <video> --briefing BRIEFING.md` (assiste com som como 3 públicos) + `verificar_retencao.py …`
 - Marcar para refazer: `orquestrador.py invalidar <id> --etapa imagem|clipe --motivo …`
+- **Verdade e direitos (antes da entrega, `references/verdade-direitos.md`)**: cada número, data, nome e citação da fala tem linha no `FONTES.md` (sem fonte = reprovado); cada mídia de terceiros tem `.credito.txt`/`creditos.json`, crédito na tela (Commons e Archive) e na descrição; filme de época não é apresentado como filmagem do fato; documento/jornal recriado tem `RECRIAÇÃO` na tela; nenhuma logo de outra marca em destaque.
 
 ## Entradas
 - tomadas com versões novas

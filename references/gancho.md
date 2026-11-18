@@ -2,7 +2,7 @@
 
 O gancho decide se a pessoa fica. Ele é **três coisas juntas**: a **imagem do 1º quadro** (entendida sem som em 1 s), a **frase** falada e o **texto na tela**. Esta etapa gera opções, pontua e deixa o usuário escolher — e, se ele quiser, sai um 2º gancho para teste A/B.
 
-## 1. Gere 6 ganchos, um por fórmula
+## 1. Gere 6 ganchos, um por fórmula (escolha as 6 que mais cabem no briefing entre as 8 da tabela)
 Use a dor, o público e o gatilho de compartilhamento do briefing. Cada gancho: **imagem do 1º quadro** + **frase (≤ 3 s de fala)** + **texto na tela (≤ 6 palavras)**.
 
 | Fórmula | Exemplo ("Cadê o técnico?") |
@@ -13,6 +13,10 @@ Use a dor, o público e o gatilho de compartilhamento do briefing. Cada gancho: 
 | **Resultado primeiro** | "O síndico recebeu a OS antes de você ligar." · WhatsApp com o PDF |
 | **Contradição** | "O técnico mais rápido da equipe… é o que você nunca acha." |
 | **POV / som** (P34/P36) | Celular vibrando em tela cheia, "TRIM!", nome do síndico na chamada |
+| **Detalhe mínimo × número enorme** | "Um cabo de R$ 12 solto… e o condomínio ficou 4 horas sem portaria." · close no cabo |
+| **Descarte do esperado** | "Não foi assalto. Não foi pane. Foi um técnico que ninguém achava." · monitor SEM SINAL |
+
+As duas últimas fórmulas vêm de vídeos que fizeram 10× o tamanho do canal (2026-11-17). Os números de qualquer gancho seguem `references/verdade-direitos.md`: exatos, com fonte (do usuário ou do sistema dele) e nunca inventados.
 
 ## 2. Pontue cada um (0–3 por critério, total 12)
 1. **Sem som em 1 s:** a imagem + texto explicam a situação sem ouvir nada?

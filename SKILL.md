@@ -43,7 +43,7 @@ Cada vídeo é feito como um filme: **eu sou o Diretor Geral** (coordeno, escolh
 | Departamento | Faz | Ferramenta |
 |---|---|---|
 | Produtor executivo | objetivo, duração, público, teto de custo | entrevista, `catalogo.py`, `roteador.py`, `custos.py` |
-| Roteiro | história, falas, gancho, re-gancho, final | `references/roteiro.md`, `gancho.md`, `extrair_ativos.py` |
+| Roteiro | história, falas, gancho, re-gancho, final, fontes de cada fato | `references/roteiro.md`, `gancho.md`, `verdade-direitos.md`, `extrair_ativos.py` |
 | Elenco | personagem: ficha (várias vistas), traços fixos, figurino com cores, voz | `ficha_grade.py ficha` → `producao.py personagem` |
 | Atuação / voz | emoção, intensidade, ritmo, pausas por fala; ouve e refaz | `diretor_voz.py` |
 | Fotografia (decupagem) | **contrato de direção de cada plano** (modo, ação em verbos, atuação, voz off/em quadro, enquadramento, ângulo, câmera com motivo, quadro inicial/final, efeitos, critérios) + regras de fotografia (variar plano, nada de 3 iguais seguidos, zoom ≤ 1 em 5, plano/contraplano) | `contrato.py rascunhar` → `validar` → `rotear` (orçamento) → `storyboard` · `producao.py decupar` |
@@ -70,6 +70,7 @@ Fluxo normal de todo vídeo novo (os scripts antigos continuam; sem `projeto.jso
    - `custo_zero`: nenhuma chamada paga (geração, voz, trilha, **análise multimodal**); imagens/análises viram trabalho do Claude (visão nativa pelas folhas) e rotas grátis. `economico`: menor custo por segundo aprovado. `teto`: melhor valor até o teto.
    - licença: catálogo com `commercial_use: "unknown"` + `uso: "publicidade"` ⇒ bloqueado. Libera só quando o usuário confirma no chat → id em `orcamento.licencas_confirmadas`.
    - **Vídeo grátis de banco (2026-11-11, ideia do MoneyPrinterTurbo):** cena "real" genérica (cidade aérea, prédio, rua à noite) → `buscar_stock.py roteiro cenas.json --saida <projeto>/assets/stock` (Pexels/Pixabay, chave grátis em `PEXELS_API_KEY`/`PIXABAY_API_KEY`) → mostrar a `grade.jpg` de cada cena no chat → **baixar só com o ok do usuário** (`baixar candidatos.json --ids 3,5`, grava `creditos.json`). Conferir rosto em destaque, marca e placa antes de usar em anúncio.
+   - **Imagem real e específica, grátis e com crédito (2026-11-17):** prédio, objeto, pessoa pública ou época de verdade → `buscar_arquivo.py fotos buscar "…"` (Wikimedia Commons; só domínio público, CC0, CC BY, CC BY-SA; `fotos baixar "File:…"` grava `.credito.txt`) ou `buscar_arquivo.py filmes buscar "…"` (Internet Archive, domínio público e filmes de governo; `filmes falas|folha|cortes|recortar` acha o trecho certo e recorta limpo com crédito). Sem chave. Regras em `references/verdade-direitos.md`: crédito na tela e na descrição, filme de época creditado pelo que é, recriação marcada `RECRIAÇÃO`.
 2. **`acervo.py buscar "…"`** antes de qualquer API: `reuso_direto` (aprovado, íntegro, sem ressalva) × `referencia` (inclui `referencia_negativa` = reprovados: o que não repetir). `acervo.py indexar <projeto>` ao fechar cada vídeo; `biblioteca.md` ganha o resumo entre marcadores.
 3. **`animatic.py <projeto>`** → roteiro temporal + animatic com voz provisória/final e ativos existentes (grátis). Divergência de duração é decidida AQUI pelo briefing e registrada uma vez (`entrega/decisoes.json`).
 4. **`autonomo.py rodar roteiro.json --job <id>`** (lê o projeto.json): inspeciona a **imagem-chave antes do clipe** (`inspetor.py imagens`); gera pelo roteador (reserva atômica antes do envio; job pago com timeout é **consultado/recuperado antes** de qualquer reenvio — `provedores.py pendentes|resolver`; mesmo pedido = reuso idempotente); reprovado → `correcoes.py` escolhe a correção de **menor custo total** (overlay → máscara → corte → recomposição → mudança editorial → edição localizada → regenerar imagem → regenerar clipe; defeito de montagem nunca regenera); limites esgotados → alternativa sem gasto ou `marcado` com ressalva. Bloqueio de orçamento é registrado uma vez e não trava o trabalho grátis dos outros planos.
@@ -356,7 +357,7 @@ Nunca pule um ponto por conta própria; se o usuário disser "pode seguir direto
 
 ## Etapa 2 — Roteiro e gancho
 
-Siga `references/roteiro.md`.
+Siga `references/roteiro.md` (inclui as técnicas de atenção e as frases proibidas) e `references/verdade-direitos.md` (todo fato com fonte em `FONTES.md`, nada inventado, nenhuma mídia sem licença conferida).
 1. **Gancho (0–3 s):** use o gancho aprovado na Etapa do gancho (`references/gancho.md` — 6 fórmulas pontuadas, o usuário escolhe entre as 3 melhores). Se a entrevista foi pulada, rode essa etapa agora. Ele aparece escrito na tela no frame 1 e se entende sem som (P07). Planeje também o **re-gancho aos 40–50%** (P14) e um **final que conversa com o começo** (P53).
 2. **Linha narrativa:** 3 versões curtas só em texto; o usuário escolhe (ou você escolhe se ele pediu sem paradas).
 3. **Roteiro final** em tabela `# | Fala | Tela | Dur.`, palavras-chave em `**negrito**` na Fala.

@@ -22,6 +22,11 @@ model: sonnet
 - Personagem novo: ficha em várias vistas (`ficha_grade.py ficha`); vários ângulos do mesmo momento: grade 3×3.
 - Tomada com continuidade ❌: refazer corrigindo exatamente o que o relatório apontou.
 
+## Caminho C — imagem real grátis (sem gerar)
+- Quando a cena pede algo real e específico (prédio, objeto, época, pessoa pública em papel público), procure antes de gerar: `buscar_arquivo.py fotos buscar "…" --saida assets/arquivo` (Wikimedia Commons) ou `buscar_arquivo.py filmes buscar "…"` (Internet Archive). Mostre as opções ao Diretor e baixe só o que ele aprovar (`fotos baixar "File:…"` / `filmes baixar <id>` → `filmes falas|folha|cortes` → `filmes recortar … --credito "…"`).
+- Só licença livre (o script recusa o resto). Item do Archive marcado `CONFERIR` = devolva `"precisa": "conferir direitos de <id>"`. Cada mídia sai com `.credito.txt`; repasse ao editor para o crédito na tela. Regras em `references/verdade-direitos.md`.
+- Nunca gere com IA o rosto de uma pessoa real pública: use a foto livre dela ou deixe sem rosto.
+
 ## Cor
 - `colorir.py cena <cenario>` quando as tomadas do cenário estiverem prontas.
 

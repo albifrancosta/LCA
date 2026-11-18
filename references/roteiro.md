@@ -34,6 +34,42 @@ O gancho aparece **escrito na tela no frame 1** (muita gente assiste sem som).
 - Pausa intencional = `…` ou ponto final: vira ponto de corte.
 - CTA no imperativo: "Clica no link", "Chama no WhatsApp", "Testa grátis".
 
+## Técnicas que seguram a atenção (2026-11-17, do estudo de vídeos que fizeram 10× o tamanho do canal)
+
+Vieram do pacote "Heist & Dark History Studio". Use as técnicas, nunca o texto de ninguém.
+
+- **Precisão no lugar de adjetivo.** "Três minutos e vinte e quatro segundos" convence mais que "num instante". "R$ 0,93" convence mais que "quase nada". Cada número é exato e tem fonte, ou vem com "cerca de" (`references/verdade-direitos.md`). Se o vídeo afirma um fato, entregue o `FONTES.md` junto com o roteiro.
+- **Descarte o que o espectador espera.** "Sem arma. Sem túnel. Sem hacker." Depois mostre o método comum, que surpreende justamente por ser simples. No comercial: "Não é mais um app. Não é planilha." e depois o que é.
+- **Plante uma ideia sem anunciar.** Uma frase com uma comparação do dia a dia ("Câmera não impede nada. Quem impede é quem está olhando.") volta sozinha lá na frente. Nunca escreva "lembra disso".
+- **Pergunta como transição.** Passe de um bloco ao outro respondendo a pergunta que o espectador já está fazendo ("Por que um elevador de mudança?"), com a resposta logo em seguida.
+- **Todo número ganha uma escala.** "Cerca de quatro vezes o recorde anterior", "o salário de um ano inteiro".
+- **Final que retoma o começo em três fragmentos curtos.** "Um elevador de mudança. Quatro minutos. Uma câmera que deu zoom tarde demais." Nada de frase genérica do canal depois disso. (Complementa o P53, final que conversa com o começo.)
+- **Diga a incerteza em voz alta.** "Segundo a polícia", "a empresa não comentou", "ninguém sabe ainda". O que segue em aberto costuma virar o final.
+- **No último terço, nada de desvio.** Depois do pico, cada frase leva ao final.
+- **Números e horários escritos como se fala** ("nove e trinta e quatro", "oitenta e oito milhões"), para a voz ler certo. No `beatmap.py`, a batida visual cai na palavra, não no dígito.
+
+**Frases proibidas** (apontam o efeito em vez de criá-lo): "agora vamos", "a seguir", "lembra disso", "pensa nisso", "aqui vem a virada", "mas não para por aí", "não é só X, é Y". Também nada de travessão na fala nem de enchimento.
+
+### Vídeo informativo ou documental (60 s a 15 min)
+Ordem que funcionou nos vídeos estudados:
+1. Abertura no contraste entre um detalhe minúsculo e um número enorme.
+2. Descarte do esperado e revelação do método comum.
+3. Loop aberto ("prender foi a parte fácil").
+4. Promessa de três coisas numa frase (como foi, quem foi, o que ninguém respondeu).
+5. Ideia plantada.
+6. Contexto em ~30 s, só o que importa.
+7. Preparação com datas.
+8. O fato minuto a minuto (o relógio dita o ritmo).
+9. O momento em que devia ter acabado e não acabou.
+10. Por que ninguém impediu, com fonte.
+11. Os erros.
+12. A consequência.
+13. A pergunta em aberto.
+14. A ironia em uma linha.
+15. Final com os três fragmentos.
+
+Num vídeo longo, ponha um **cartão de capítulo** (2 a 3 palavras, como "O PLANO" ou "A CAÇADA") a cada 2–3 min, com uma pausa de ~2 s na voz enquanto o cartão está na tela.
+
 ## Formato do ROTEIRO.md
 
 ```markdown

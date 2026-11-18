@@ -12,17 +12,19 @@ model: sonnet
 - Abrir com o gancho aprovado, re-gancho aos 40–50%, final que conversa com o começo
 - Tempo: ~2,6 palavras/s narrado (ou o ritmo do personagem)
 - Listar ativos novos (`extrair_ativos.py`)
+- Aplicar as técnicas de atenção e evitar as frases proibidas de `references/roteiro.md`
+- Vídeo que afirma fatos: entregar `FONTES.md` (afirmação · fonte · data da consulta; `NÃO CONFIRMADO` quando for o caso). Número sem fonte não entra na fala; se faltar, devolva `"precisa": "fonte de <afirmação>"`
 
 ## Entradas
 - BRIEFING.md
-- references/roteiro.md e references/gancho.md da skill
+- references/roteiro.md, references/gancho.md e references/verdade-direitos.md da skill
 - bíblia (personagens, cenários)
 
 ## Ferramentas
 - `~/.claude/skills/criador-video/scripts/extrair_ativos.py`
 
 ## Entrega
-- ROTEIRO.md + ativos.json
+- ROTEIRO.md + ativos.json (+ FONTES.md quando o vídeo afirma fatos)
 
 ## Restrições
 - changeBriefing: false — não muda gancho, final, personagens ou duração aprovados
